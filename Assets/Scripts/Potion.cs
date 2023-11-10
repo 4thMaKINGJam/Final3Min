@@ -5,8 +5,7 @@ using UnityEngine;
 public class Potion : MonoBehaviour
 {
     public int Base;
-    public int Item1;
-    public int Item2;
+    public int[] Items = { 0, 0, 0, 0 };
     public int Cooked;
 
     // Start is called before the first frame update
