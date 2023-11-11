@@ -20,6 +20,7 @@ public class CookedItem : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker","Bin"));
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
+                GameManager.instance.MouseHasObject = false;
                 Destroy(gameObject);
             }
             else{
@@ -27,6 +28,7 @@ public class CookedItem : MonoBehaviour
                 if(babyBeaker.liquid != 0){
                     if(babyBeaker.itemCnt < 2 && babyBeaker.cooked == 0){
                         babyBeaker.food = ItemType;
+                        GameManager.instance.MouseHasObject = false;
                         Destroy(gameObject);
                     }
                 }

@@ -8,9 +8,11 @@ public class LiquidSpawner : MonoBehaviour
     private GameObject Liquid;
 
     [SerializeField]
-    private int price;
+    private int price; 
 
     void OnMouseDown(){
+        if(GameManager.instance.MouseHasObject) return;
+        GameManager.instance.MouseHasObject = true;
         GameManager.instance.ChangeMoney(-price);
         Instantiate(Liquid,transform.position,Quaternion.identity);
     }
