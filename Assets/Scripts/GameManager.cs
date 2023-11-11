@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     
     public Stopwatch stopwatch;
 
-    private int money;
+    public int money = 0;
 
 
     void Awake() {
