@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 358369879}
   - component: {fileID: 358369881}
   - component: {fileID: 358369882}
+  - component: {fileID: 358369883}
   m_Layer: 0
   m_Name: Washer
   m_TagString: Untagged
@@ -414,10 +415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c705e07d064bc6b46a04e0b6f238b620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 577009126}
-  washerFilled: {fileID: 21300000, guid: e7233647fca39f04a9e76f38e06c03a2, type: 3}
-  washerEmpty: {fileID: 21300000, guid: d8f4e81605f5e8946a68aaa9011da342, type: 3}
-  bottleLeftScript: {fileID: 1908495722}
 --- !u!61 &358369882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -444,6 +441,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!114 &358369883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358369878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c17e5f0faf9c714bb9d541449e30dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 577009126}
+  washerFilled: {fileID: 21300000, guid: e7233647fca39f04a9e76f38e06c03a2, type: 3}
+  washerEmpty: {fileID: 21300000, guid: d8f4e81605f5e8946a68aaa9011da342, type: 3}
+  bottleLeftScript: {fileID: 1908495722}
 --- !u!1 &559820141
 GameObject:
   m_ObjectHideFlags: 0
