@@ -23,9 +23,9 @@ public class Liquid : MonoBehaviour
                 Destroy(gameObject);
             }
             else{
-                Beaker beaker = hit.collider.gameObject.GetComponent<Beaker>();
-                if(beaker.liquid == 0){
-                    beaker.food = liquidType; 
+                beaker babyBeaker = hit.collider.gameObject.GetComponent<beaker>();
+                if(babyBeaker.liquid == 0){
+                    babyBeaker.food = liquidType; 
                     Destroy(gameObject);
                 }
             }
