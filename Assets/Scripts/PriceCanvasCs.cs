@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PriceCanvasCs : MonoBehaviour
 {
-    public float fadeOutTime = 0.7f;
-    public float moveDistance = 20.0f;
+    private readonly float fadeOutTime = 0.7f;
+    private readonly float moveDistance = 100.0f;
 
     public CanvasGroup canvasGroup;
     private Vector3 originalPosition;
