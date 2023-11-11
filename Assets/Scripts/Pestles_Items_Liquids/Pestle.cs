@@ -50,6 +50,7 @@ public class Pestle : MonoBehaviour
             Isfull = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = BeforeCook[Item];
             anim.SetInteger("item",Item);
+            gameObject.layer = 0;
             GetIn = false;
         }
         
@@ -97,6 +98,7 @@ public class Pestle : MonoBehaviour
                     gameObject.GetComponent<SpriteRenderer>().sprite = DefaultSprite;
                     Instantiate(CookedItem[Item], transform.position, Quaternion.identity);
 
+                    gameObject.layer = 8;
                     Isfull = false;
                     IsCooked = false;
                 }

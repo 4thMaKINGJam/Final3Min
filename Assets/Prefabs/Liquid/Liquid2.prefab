@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3832302371095481994}
   - component: {fileID: 3832302371095481990}
   m_Layer: 0
-  m_Name: Liquid3
+  m_Name: Liquid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 1269605459, guid: cefc22207b6a14191b3fc5dd48299bf3, type: 3}
+  m_Sprite: {fileID: -877792049, guid: cefc22207b6a14191b3fc5dd48299bf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.50000006
+  m_Radius: 1.9338164
 --- !u!114 &3832302371095481990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,4 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8e103826e90534a9cb9db4376d3096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liquidType: 6
+  liquidType: 5
