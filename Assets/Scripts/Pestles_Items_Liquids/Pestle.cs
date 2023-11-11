@@ -56,7 +56,7 @@ public class Pestle : MonoBehaviour
         
     }
     void OnMouseDown(){
-        if(MinigameStage){      
+        if(MinigameStage && !GameManager.instance.MouseHasObject){      
             double posX = MinigameCircle.transform.localPosition.x;
             
             anim.enabled = false;
@@ -76,7 +76,7 @@ public class Pestle : MonoBehaviour
             MinigameStage = false;
         }
         else{     
-            if(Isfull){
+            if(Isfull && !GameManager.instance.MouseHasObject){
                 if(!IsCooked){  // 빻지 않은 상태라면
                     MortarDefault.SetActive(false);
                     MortarGo.SetActive(true);
