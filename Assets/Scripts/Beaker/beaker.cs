@@ -59,7 +59,6 @@ public class beaker : MonoBehaviour
     {
         if (foodType < 4)//food가 재료면 item에 들어왔다고 추가
         {
-            Debug.Log("B. food 들어왔어요:"+ foodType);
             itemCnt++;
             item[foodType]++;
         }
@@ -84,7 +83,6 @@ public class beaker : MonoBehaviour
     /***아이템이 들어올 때 7초, 3초 추가***/
     void timerCheck(int count)
     {
-        Debug.Log("시간 잴게요~" + count);
         if (count == 1)//처음이라면 7초 타이머 시작
         {
             beakerTimer = StartCoroutine(StartTimer());
@@ -102,7 +100,6 @@ public class beaker : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             waitTime--;
-            Debug.Log("B.완성까지"+waitTime);
         }
         StartCoroutine(TimerFinished());
     }
@@ -111,16 +108,13 @@ public class beaker : MonoBehaviour
     {
         int timeExm = 3;
         cooked = 1;
-        Debug.Log("B. 완성됐습니다." + cooked);
         animator.SetInteger("cooked", cooked);//1
         while (timeExm>0) {
             yield return new WaitForSeconds(1f);
             timeExm--;
-            Debug.Log("지금입니다. 성공의 시간!" + cooked);
         }
         cooked = 2;
         animator.SetInteger("cooked", cooked);
-        Debug.Log("B. 끝났수"+cooked);
         this.GetComponent<beaker>().enabled = false;
     }
 
@@ -129,7 +123,6 @@ public class beaker : MonoBehaviour
         waitTime += 3;
         //기존 코루틴 중지, 갱신된 시간으로 타이머 재시작
         StopCoroutine(beakerTimer);
-        Debug.Log("B. 3초 추가!");
         beakerTimer = StartCoroutine(StartTimer());
     }
 
@@ -142,7 +135,7 @@ public class beaker : MonoBehaviour
     {
         StopCouroutine();
         fire.SetActive(false);
-        animator.SetInteger("color", 0);//init으로 돌아옴
+        animator.SetInteger("color", 0);
         this.enabled = false;
     }
 }
