@@ -9,6 +9,8 @@ public class OrderManager : MonoBehaviour
 
     private readonly float INITIAL_INTERVAL = 5f;
     private readonly int ORDER_COUNT_LIMIT = 3;
+    private readonly float DEFAULT_DELAY = 3f;
+
     private readonly List<GameObject> orderList = new List<GameObject>();
     private readonly List<Vector3> _position = new List<Vector3>();
 
@@ -68,7 +70,7 @@ public class OrderManager : MonoBehaviour
         }
 
         Destroy(temp);
-        CreateNewOrder();
+        Invoke(nameof(CreateNewOrder), DEFAULT_DELAY);
     }
 
     // submit new potion
