@@ -7,10 +7,10 @@ public class OrderManager : MonoBehaviour
 {
     Stopwatch stopwatch;
 
-    private float INITIAL_INTERVAL = 5f;
-    private int ORDER_COUNT_LIMIT = 3;
-    private List<GameObject> orderList = new List<GameObject>();
-    private List<Vector3> _position = new List<Vector3>();
+    private readonly float INITIAL_INTERVAL = 5f;
+    private readonly int ORDER_COUNT_LIMIT = 3;
+    private readonly List<GameObject> orderList = new List<GameObject>();
+    private readonly List<Vector3> _position = new List<Vector3>();
     [SerializeField] private GameObject OrderPrefab;
 
     private void Awake()
@@ -47,7 +47,6 @@ public class OrderManager : MonoBehaviour
 
     }
 
-    // discard order by id?
     void DiscardOrder(int idx)
     {
         // discard order
@@ -65,16 +64,23 @@ public class OrderManager : MonoBehaviour
     }
 
     // submit new potion
-    public void SubmitPotion(int base_num, int cooked, int[] items)
+    public void SubmitPotion(int baseNum, int cooked, int[] items)
     {
-        UnityEngine.Debug.Log("submitted!");
-        //for (int i = 0; i < orderList.Count; i++)
-        //{
-        //    if (orderList[i])
-        //    {
-        //        DiscardOrder(i);
-        //    }
-        //}
+        //UnityEngine.Debug.Log("submitted!");
+        if (cooked != 1)
+        {
+            return;
+        }
+
+        for (int i = 0; i < orderList.Count; i++)
+        {
+            if (orderList[i].GetComponent<Order>().IsEqual(baseNum, items))
+            {
+                // add coin
+                DiscardOrder(i);
+                return;
+            }
+        }
     }
 
     void CheckTimeOver()
