@@ -655,7 +655,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &470734235
@@ -1985,7 +1985,7 @@ SpriteRenderer:
   m_Size: {x: 0.76, y: 1.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1088233190
@@ -2308,15 +2308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c17e5f0faf9c714bb9d541449e30dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 1321875737}
-  washerFilled: {fileID: -1269903108, guid: 414c854779c86934eb3a5f94d143a546, type: 3}
-  washerEmpty: {fileID: -847735366, guid: 414c854779c86934eb3a5f94d143a546, type: 3}
-  washBGM: {fileID: 2002471613}
-  washClipBGM: {fileID: 2002471615}
-  washClips:
-  - {fileID: 8300000, guid: 8310bfa8f76d959479dce24aba36393b, type: 3}
-  - {fileID: 8300000, guid: 7d9d0599f04c5e241a34b34409b2dc41, type: 3}
-  bottleLeftScript: {fileID: 1634530509}
 --- !u!61 &1260667648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2470,6 +2461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 0
+  BeakerImage: []
   fire: {fileID: 470734232}
 --- !u!61 &1305041180
 BoxCollider2D:
@@ -2567,7 +2559,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1305041183
@@ -3156,7 +3148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8320276728917976992, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.21
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8320276728917976992, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_AnchoredPosition.y
