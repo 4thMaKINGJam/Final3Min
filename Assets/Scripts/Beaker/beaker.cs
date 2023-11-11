@@ -107,9 +107,16 @@ public class beaker : MonoBehaviour
 
     IEnumerator TimerFinished()
     {
+        int timeExm = 3;
+        cooked = 1;
         Debug.Log("B. 완성됐습니다." + cooked);
         animator.SetInteger("progress", cooked);//1
-        yield return new WaitForSeconds(3f);
+        while (timeExm>0) {
+            yield return new WaitForSeconds(1f);
+            timeExm--;
+            Debug.Log("지금입니다. 성공의 시간!" + cooked);
+        }
+        
         fire.SetActive(false);
         cooked = 2;
         animator.SetInteger("progress", cooked);

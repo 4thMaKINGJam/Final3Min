@@ -7,14 +7,22 @@ public class OrderManager : MonoBehaviour
 {
     Stopwatch stopwatch;
 
-    private float INITIAL_INTERVAL = 5f;
-    private int ORDER_COUNT_LIMIT = 3;
-    private List<GameObject> orderList = new List<GameObject>();
-    private List<Vector3> _position = new List<Vector3>();
+    private readonly float INITIAL_INTERVAL = 5f;
+    private readonly int ORDER_COUNT_LIMIT = 3;
+    private readonly List<GameObject> orderList = new List<GameObject>();
+    private readonly List<Vector3> _position = new List<Vector3>();
+
     [SerializeField] private GameObject OrderPrefab;
+
+    public WashMiniGame washer;
 
     private void Awake()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
+        }
+
         // collect position info
         _position.Add(transform.GetChild(1).gameObject.transform.position);
         _position.Add(transform.GetChild(2).gameObject.transform.position);
@@ -47,7 +55,6 @@ public class OrderManager : MonoBehaviour
 
     }
 
-    // discard order by id?
     void DiscardOrder(int idx)
     {
         // discard order
@@ -65,16 +72,30 @@ public class OrderManager : MonoBehaviour
     }
 
     // submit new potion
-    public void SubmitPotion(int base_num, int cooked, int[] items)
+    public void SubmitPotion(int baseNum, int cooked, int[] items)
     {
+        washer.IncreaseDirtyBottle();
+
         UnityEngine.Debug.Log("submitted!");
-        //for (int i = 0; i < orderList.Count; i++)
-        //{
-        //    if (orderList[i])
-        //    {
-        //        DiscardOrder(i);
-        //    }
-        //}
+        if (cooked != 1)
+        {
+            UnityEngine.Debug.Log("!!!@@@"+cooked);
+            return;
+        }
+
+        for (int i = 0; i < orderList.Count; i++)
+        {
+            Order currentOrder = orderList[i].GetComponent<Order>();
+            if (currentOrder.IsEqual(baseNum, items))
+            {
+                // add coin
+                GameManager.instance.ChangeMoney(currentOrder.price);
+                DiscardOrder(i);
+                UnityEngine.Debug.Log("correct");
+                return;
+            }
+        }
+        UnityEngine.Debug.Log("wrong");
     }
 
     void CheckTimeOver()

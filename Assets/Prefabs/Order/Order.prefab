@@ -282,7 +282,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -2}
-  m_SizeDelta: {x: 3, y: 0.5}
+  m_SizeDelta: {x: 2.8, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5629850955155679032
 MonoBehaviour:
@@ -698,8 +698,8 @@ RectTransform:
   m_GameObject: {fileID: 6704579768463387839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5820647371619204174}
   - {fileID: 88480734470107944}
@@ -731,9 +731,9 @@ MonoBehaviour:
   - {fileID: -1669708266, guid: a91ee57471e804781916cb3cd4038124, type: 3}
   - {fileID: 1016070515, guid: a91ee57471e804781916cb3cd4038124, type: 3}
   ItemImg:
-  - {fileID: 1911889040, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: -539471446, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: 1153613693, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
+  - {fileID: 1911889040, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: 816790529, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   timeOver: 0
   price: 0
