@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class beaker : MonoBehaviour
 {
-
     [HideInInspector]
     public int food = 0;
-    public int liquid { get; private set; } = 0;
+    /*포션에게 전달해야할 것*/
+    public int liquid { get; private set; }
     public int[] item { get; private set; } = new int[4];
+    public int cooked { get; private set; }
 
-    public int itemCnt { get; private set; } = 0;
-    int foodCnt = 0;
+    public int itemCnt { get; private set; }
+    int foodCnt;
 
-    float waitTime = 7.0f;
+    float waitTime;
     private Coroutine beakerTimer;
 
     [SerializeField]
@@ -23,39 +24,52 @@ public class beaker : MonoBehaviour
     private Animator animator;
     
 
-    void Start() {
+    void OnEnable() {//enable 
         animator = this.GetComponent<Animator>();
         animator.enabled = false;
         gameObject.GetComponent<SpriteRenderer>().sprite = potions[0];
+        animator.SetInteger("CookRate", 0);
 
+        food = 7;
+        liquid = 0;
+        for (int i = 0; i < item.Length; i++)
+        {
+            item[i] = 0;
+        }
+        cooked = 0;
+        itemCnt = 0;
+        foodCnt = 0;
+        waitTime = 7.0f;
     }
+
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            food = 5;
+            food = 2;
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-            food = 4;
-        }
-        if (food > 0)
+
+        if (food !=7)
         {
             checkFood(food);
-            food = 0;
+            food = 7;
         }
     }
 
     #region check food
     void checkFood(int foodType)
     {
-        if (foodType < 3)//food가 재료면 item에 들어왔다고 추가
+        if (foodType < 4)//food가 재료면 item에 들어왔다고 추가
         {
             itemCnt++;
             item[foodType]++;
+            for (int i = 0; i < item.Length; i++)
+            {
+                Debug.Log(item[i]);
+            }
         }
-        else if (foodType < 6)// food가 액체면 liquid에 추가, 비커 색깔 바꾸기
+        else if (foodType < 7)// food가 액체면 liquid에 추가, 비커 색깔 바꾸기
         {
             liquid = foodType;
             changeColor(liquid);
@@ -69,7 +83,6 @@ public class beaker : MonoBehaviour
     #region change color
     void changeColor(int baseColor) {
         animator.enabled = true;
-        //fire.GetComponent<Animator>().enable=true;
         if (baseColor == 4){
             gameObject.GetComponent<SpriteRenderer>().sprite = potions[1];
         }
@@ -113,7 +126,7 @@ public class beaker : MonoBehaviour
         yield return new WaitForSeconds(3f);
         animator.SetInteger("CookRate", 2);
         fire.SetActive(false);
-        this.enabled = false;
+        this.GetComponent<beaker>().enabled = false;
     }
 
     void AddExtraTime()
@@ -122,6 +135,10 @@ public class beaker : MonoBehaviour
         //기존 코루틴 중지, 갱신된 시간으로 타이머 재시작
         StopCoroutine(beakerTimer);
         beakerTimer = StartCoroutine(StartTimer());
+    }
+
+    public void StopCouroutine() {        
+        StopAllCoroutines();
     }
     #endregion
 }
