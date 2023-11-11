@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using TMPro;
 
 public class OrderManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private GameObject OrderPrefab;
 
     public WashMiniGame washer;
+    public GameObject pricePrefab;
 
     private void Awake()
     {
@@ -97,6 +99,8 @@ public class OrderManager : MonoBehaviour
             {
                 // add coin
                 GameManager.instance.ChangeMoney(currentOrder.price);
+                CreatePriceCanvas(currentOrder.price);
+
                 DiscardOrder(i);
                 
                 UnityEngine.Debug.Log("correct");
@@ -125,5 +129,30 @@ public class OrderManager : MonoBehaviour
         CreateNewOrder();
         Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL);
         Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL * 2);
+    }
+
+    private void CreatePriceCanvas(int price)
+    {
+        GameObject priceCanvas = Instantiate(pricePrefab);
+        Transform priceTextTransform = priceCanvas.transform.Find("PriceText");
+
+        if (priceTextTransform != null)
+        {
+            TextMeshProUGUI priceText = priceTextTransform.GetComponent<TextMeshProUGUI>();
+
+            // 찾은 priceText를 사용하여 텍스트 변경
+            if (priceText != null)
+            {
+                priceText.SetText("+" + price); 
+            }
+            else
+            {
+                UnityEngine.Debug.LogWarning("priceText is not a TextMeshProUGUI component.");
+            }
+        }
+        else
+        {
+            UnityEngine.Debug.LogWarning("priceText not found under priceCanvas.");
+        }
     }
 }

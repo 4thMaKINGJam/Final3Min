@@ -21,6 +21,15 @@ public class fillPotion : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    public float fadeOutTime = 0.7f;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     void OnEnable() {
         animator = this.GetComponent<Animator>();
     }
@@ -49,7 +58,7 @@ public class fillPotion : MonoBehaviour
                 
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
                 GameManager.instance.MouseHasObject = false;
-                Destroy(this.gameObject);
+                StartCoroutine(FadeOut());
             }
         }
     }
@@ -91,5 +100,23 @@ public class fillPotion : MonoBehaviour
         }
         animator.SetInteger("color_cook", color_cook);
         beakerCtrl.enabled = true;
+    }
+
+    IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
+        Color originalColor = spriteRenderer.color;
+
+        while (elapsedTime < fadeOutTime)
+        {
+            float alpha = Mathf.Lerp(originalColor.a, 0f, elapsedTime / fadeOutTime);
+            spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
     }
 }

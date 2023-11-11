@@ -2655,6 +2655,10 @@ PrefabInstance:
       propertyPath: washer
       value: 
       objectReference: {fileID: 1888248101159990377}
+    - target: {fileID: 6620206810665507056, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
+      propertyPath: pricePrefab
+      value: 
+      objectReference: {fileID: 3787035291011879093, guid: 24efbfa7ee735e14493ba524e8c7edca, type: 3}
     - target: {fileID: 8320276728917976992, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4172,6 +4176,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1622240205}
+    - target: {fileID: 1888248101873488712, guid: 1557c2342fbf914458e229118a1da756, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1888248102117109259, guid: 1557c2342fbf914458e229118a1da756, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
