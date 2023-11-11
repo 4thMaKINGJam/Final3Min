@@ -11,6 +11,7 @@ public class beaker : MonoBehaviour
     public int[] item { get; private set; } = new int[4];
     public int cooked { get; private set; }
     public int itemCnt { get; private set; }
+    [SerializeField] private Sprite[] BeakerImage;
 
     int foodCnt;
 
@@ -37,9 +38,11 @@ public class beaker : MonoBehaviour
         
         animator = this.GetComponent<Animator>();
         animator.enabled = false;
-        animator.SetInteger("progress", cooked);
+        animator.SetInteger("cooked", cooked);
+        this.GetComponent<SpriteRenderer>().sprite = BeakerImage[0];
 
-        
+
+
     }
 
         void Update()
@@ -110,7 +113,7 @@ public class beaker : MonoBehaviour
         int timeExm = 3;
         cooked = 1;
         Debug.Log("B. ¿Ï¼ºµÆ½À´Ï´Ù." + cooked);
-        animator.SetInteger("progress", cooked);//1
+        animator.SetInteger("cooked", cooked);//1
         while (timeExm>0) {
             yield return new WaitForSeconds(1f);
             timeExm--;
@@ -119,7 +122,7 @@ public class beaker : MonoBehaviour
         
         fire.SetActive(false);
         cooked = 2;
-        animator.SetInteger("progress", cooked);
+        animator.SetInteger("cooked", cooked);
         Debug.Log("B. ³¡³µ¼ö"+cooked);
         this.GetComponent<beaker>().enabled = false;
     }
