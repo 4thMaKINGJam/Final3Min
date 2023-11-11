@@ -157,7 +157,7 @@ SpriteRenderer:
   m_Size: {x: 0.76, y: 1.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1999381343570578411
@@ -727,9 +727,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 5629850955155679032}
   CompleteImg:
-  - {fileID: -2001862442, guid: a91ee57471e804781916cb3cd4038124, type: 3}
-  - {fileID: -1669708266, guid: a91ee57471e804781916cb3cd4038124, type: 3}
-  - {fileID: 1016070515, guid: a91ee57471e804781916cb3cd4038124, type: 3}
+  - {fileID: 361452945, guid: a91ee57471e804781916cb3cd4038124, type: 3}
+  - {fileID: -1609696604, guid: a91ee57471e804781916cb3cd4038124, type: 3}
+  - {fileID: 1552012037, guid: a91ee57471e804781916cb3cd4038124, type: 3}
   ItemImg:
   - {fileID: -539471446, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: 1153613693, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}

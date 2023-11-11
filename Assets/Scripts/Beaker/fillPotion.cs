@@ -36,7 +36,7 @@ public class fillPotion : MonoBehaviour
 
     void OnMouseDown()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker"));
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker", "Submit"));
         if (hit)
         {
             if (hit.collider.gameObject.tag == "Beaker")
