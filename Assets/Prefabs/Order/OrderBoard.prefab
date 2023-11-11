@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderPrefab: {fileID: 6704579768463387839, guid: ceabfae2c8fbf4c5387b74501e3ffda4, type: 3}
+  washer: {fileID: 0}
 --- !u!1 &6220770857709553999
 GameObject:
   m_ObjectHideFlags: 0
