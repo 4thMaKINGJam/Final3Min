@@ -14,6 +14,7 @@ public class BottleLeft : MonoBehaviour
         {
             bottle.SetActive(true);
         }
+        bottleLeft = 5;
     }
 
     // Update is called once per frame

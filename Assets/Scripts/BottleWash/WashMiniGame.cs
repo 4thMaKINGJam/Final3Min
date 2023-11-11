@@ -25,6 +25,7 @@ public class WashMiniGame : MonoBehaviour
 
     private void Start()
     {
+        bottleDirty = 0;
         progressBar.value = fillAmount;
         progressBar.gameObject.SetActive(false);
         barActive = false;
