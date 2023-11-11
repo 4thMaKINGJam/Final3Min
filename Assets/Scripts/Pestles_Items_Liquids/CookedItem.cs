@@ -24,11 +24,12 @@ public class CookedItem : MonoBehaviour
             }
             else{
                 Beaker beaker = hit.collider.gameObject.GetComponent<Beaker>();
-                if(beaker.liquid == 0){
+                //if(beaker.liquid != 0){
                     if(beaker.itemCnt < 2){
                         beaker.food = ItemType;
+                        Destroy(gameObject);
                     }
-                }
+                //}
             }
         } 
     }
