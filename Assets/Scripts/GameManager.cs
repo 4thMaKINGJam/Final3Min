@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Diagnostics;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +13,10 @@ public class GameManager : MonoBehaviour
     public int money = 0;
     
     public bool MouseHasObject = false;
+
+    private readonly int TIME_LIMIT = 3 * 60 * 1000;
+    private readonly int SUCCESS_STD = 0;
+
 
     void Awake() {
         instance = this;
@@ -27,7 +30,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (this.stopwatch.ElapsedMilliseconds >= TIME_LIMIT)
+        {
+            if (this.money >= SUCCESS_STD)
+            {
+                SceneManager.LoadScene("GameClear");
+            } else
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+        }
     }
 
     public void OnClickPlay()
