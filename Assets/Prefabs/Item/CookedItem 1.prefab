@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8854417471267911735}
   - component: {fileID: 7752818878207219875}
-  - component: {fileID: 8667048868033575481}
   - component: {fileID: -9079875549549732874}
+  - component: {fileID: 2167515773373877635}
   m_Layer: 0
-  m_Name: Item 1
+  m_Name: CookedItem 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4290350827553018530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9943273, y: -3.7335799, z: 0}
+  m_LocalPosition: {x: -3.792, y: -3.907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 1911889040, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
+  m_Sprite: {fileID: -424906579, guid: 2960eb91e6fac8c45beabffa14a31fe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8667048868033575481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4290350827553018530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1dcae27ad35c344cbb7c0782dfa8a22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemType: 0
 --- !u!61 &-9079875549549732874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,12 +103,25 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 0.79}
+    oldSize: {x: 1.8, y: 0.85}
     newSize: {x: 0.9, y: 0.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.79}
+  m_Size: {x: 1.8, y: 0.85}
   m_EdgeRadius: 0
+--- !u!114 &2167515773373877635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290350827553018530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a181a566e997f0641b7317eceea60800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemType: 0

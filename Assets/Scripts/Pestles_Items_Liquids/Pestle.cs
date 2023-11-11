@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Pestle : MonoBehaviour
 {
+    [HideInInspector]
     public bool Isfull = false;
+    [HideInInspector]
     public bool IsCooked = false;
+    [HideInInspector]
     public bool GetIn = false;
+    [HideInInspector]
     public int Item; // 0,1,2,3
 
     [SerializeField]
@@ -19,6 +23,10 @@ public class Pestle : MonoBehaviour
     private Sprite[] AfterCook;
     private Sprite DefaultSprite;
 
+    private Animator anim;
+    GameObject MortarDefault;
+    GameObject MortarGo;
+
     private bool MinigameStage = false;
     GameObject MinigameBar;  // Pestle의 하위 오브젝트
     GameObject MinigameRect;  // MinigameBar의 하위 오브젝트
@@ -26,6 +34,10 @@ public class Pestle : MonoBehaviour
 
     void Start() {
         DefaultSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        anim = gameObject.GetComponent<Animator>();
+
+        MortarDefault = transform.Find("MortarDefault").gameObject;
+        MortarGo = transform.Find("MortarGo").gameObject;
 
         MinigameBar = transform.Find("MinigameBar").gameObject;
         MinigameRect = MinigameBar.transform.Find("MinigameRect").gameObject;
@@ -37,34 +49,45 @@ public class Pestle : MonoBehaviour
         if(GetIn){
             Isfull = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = BeforeCook[Item];
+            anim.SetInteger("item",Item);
             GetIn = false;
         }
         
     }
-
     void OnMouseDown(){
         if(MinigameStage){      
             double posX = MinigameCircle.transform.localPosition.x;
+            
+            anim.enabled = false;
+            MortarDefault.SetActive(true);
+            MortarGo.SetActive(false);
+
             if(posX < 0.5 && posX > -0.5)
             {
                 IsCooked=true;
                 gameObject.GetComponent<SpriteRenderer>().sprite = AfterCook[Item];
+            }else{
+                gameObject.GetComponent<SpriteRenderer>().sprite = BeforeCook[Item];
             }
             MinigameBar.SetActive(false);
             MinigameRect.SetActive(false);
             MinigameCircle.SetActive(false);
-            MinigameStage = false; 
+            MinigameStage = false;
         }
         else{     
             if(Isfull){
                 if(!IsCooked){  // 빻지 않은 상태라면
+                    MortarDefault.SetActive(false);
+                    MortarGo.SetActive(true);
+                    anim.enabled = true;
+
                     MinigameStage = true; 
 
                     float end = (float)0.5*(1-MinigameRect.transform.localScale.x);
-                    MinigameRect.transform.localPosition = new Vector3(Random.Range(0f,end),0,0);  // 랜덤 영역 생성
+                    MinigameRect.transform.localPosition = new Vector3(Random.Range(0f,end-(float)0.1),0,0);  // 랜덤 영역 생성
                     
                     Transform t = MinigameBar.transform;
-                    MinigameCircle.transform.position = new Vector3(t.position.x-t.lossyScale.x/2,t.position.y,t.position.z);
+                    MinigameCircle.transform.position = new Vector3(t.position.x - t.lossyScale.x/2 + MinigameCircle.transform.lossyScale.x/3, t.position.y, t.position.z);
 
                     MinigameBar.SetActive(true);
                     MinigameRect.SetActive(true);
@@ -73,6 +96,7 @@ public class Pestle : MonoBehaviour
                 else{  // 빻은 상태라면
                     gameObject.GetComponent<SpriteRenderer>().sprite = DefaultSprite;
                     Instantiate(CookedItem[Item], transform.position, Quaternion.identity);
+
                     Isfull = false;
                     IsCooked = false;
                 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 919e61a063f8b8c4fb64a306ecfa5f54
+guid: c55137cb6744fb0469e4af2591fe35ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mortargame_0
+      name: Mortargame (1)_0
       rect:
         serializedVersion: 2
-        x: 979
-        y: 403
-        width: 21
-        height: 23
+        x: 978
+        y: 443
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c97d177b3c58645924141c0fde3d9d
-      internalID: -1559363788
+      spriteID: 5d2bf81d33ef3da4dbf0f5af8273b63c
+      internalID: 597105459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mortargame (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 442
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80daf7e0d03adb346a94617a45470e25
+      internalID: -1525238385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mortargame (1)_2
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 406
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdb20bf7e51a3b4aa097321c177d0a3
+      internalID: 411043439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mortargame (1)_3
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 406
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8bdc07960e88f4a818157662170c67
+      internalID: -1807266856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mortargame (1)_4
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 405
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8803d5104207ac54ab6477226b2c9cdc
+      internalID: 1259808280
       vertices: []
       indices: 
       edges: []
@@ -136,7 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mortargame_0: -1559363788
+      Mortargame (1)_1: -1525238385
+      Mortargame (1)_2: 411043439
+      Mortargame (1)_4: 1259808280
+      Mortargame (1)_3: -1807266856
+      Mortargame (1)_0: 597105459
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
