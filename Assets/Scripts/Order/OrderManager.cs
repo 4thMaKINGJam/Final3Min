@@ -8,9 +8,9 @@ public class OrderManager : MonoBehaviour
 {
     Stopwatch stopwatch;
 
-    private readonly float INITIAL_INTERVAL = 5f;
+    private readonly float INITIAL_INTERVAL = 7f;
     private readonly int ORDER_COUNT_LIMIT = 3;
-    private readonly float DEFAULT_DELAY = 3f;
+    private readonly float DEFAULT_DELAY = 7f;
 
     [SerializeField] private AudioClip correctSound;
     [SerializeField] private AudioClip wrongSound;
@@ -138,7 +138,7 @@ public class OrderManager : MonoBehaviour
         {
             TextMeshProUGUI priceText = priceTextTransform.GetComponent<TextMeshProUGUI>();
 
-            // 찾은 priceText를 사용하여 텍스트 변경
+            // ???? priceText?? ???????? ?????? ????
             if (priceText != null)
             {
                 priceText.SetText("+" + price); 

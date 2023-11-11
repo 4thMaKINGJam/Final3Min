@@ -6,7 +6,7 @@ public class beaker : MonoBehaviour
 {
     [HideInInspector]
     public int food = 0;
-    /*Æ÷¼Ç¿¡°Ô Àü´ÞÇØ¾ßÇÒ °Í*/
+    /*ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½*/
     public int liquid { get; private set; }
     public int[] item { get; private set; } = new int[4];
     public int cooked { get; private set; }
@@ -57,12 +57,12 @@ public class beaker : MonoBehaviour
     #region check food
     void checkFood(int foodType)
     {
-        if (foodType < 4)//food°¡ Àç·á¸é item¿¡ µé¾î¿Ô´Ù°í Ãß°¡
+        if (foodType < 4)//foodï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½Ô´Ù°ï¿½ ï¿½ß°ï¿½
         {
             itemCnt++;
             item[foodType]++;
         }
-        else if (foodType < 7)// food°¡ ¾×Ã¼¸é liquid¿¡ Ãß°¡, ºñÄ¿ »ö±ò ¹Ù²Ù±â
+        else if (foodType < 7)// foodï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ liquidï¿½ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
         {
             liquid = foodType;
             changeColor(liquid);
@@ -80,15 +80,15 @@ public class beaker : MonoBehaviour
     #endregion
 
     #region beaker timer
-    /***¾ÆÀÌÅÛÀÌ µé¾î¿Ã ¶§ 7ÃÊ, 3ÃÊ Ãß°¡***/
+    /***ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 7ï¿½ï¿½, 3ï¿½ï¿½ ï¿½ß°ï¿½***/
     void timerCheck(int count)
     {
-        if (count == 1)//Ã³À½ÀÌ¶ó¸é 7ÃÊ Å¸ÀÌ¸Ó ½ÃÀÛ
+        if (count == 1)//Ã³ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ 7ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             beakerTimer = StartCoroutine(StartTimer());
             fire.SetActive(true);
         }
-        else if (count > 1)//Ã³À½ÀÌ ¾Æ´Ï¶ó¸é 3ÃÊ¸¦ ´õÇÑ´Ù.
+        else if (count > 1)//Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ 3ï¿½Ê¸ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
         {
             AddExtraTime();
         }
@@ -106,7 +106,7 @@ public class beaker : MonoBehaviour
 
     IEnumerator TimerFinished()
     {
-        int timeExm = 3;
+        int timeExm = 6;
         cooked = 1;
         animator.SetInteger("cooked", cooked);//1
         while (timeExm>0) {
@@ -121,7 +121,7 @@ public class beaker : MonoBehaviour
     void AddExtraTime()
     {
         waitTime += 3;
-        //±âÁ¸ ÄÚ·çÆ¾ ÁßÁö, °»½ÅµÈ ½Ã°£À¸·Î Å¸ÀÌ¸Ó Àç½ÃÀÛ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Åµï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
         StopCoroutine(beakerTimer);
         beakerTimer = StartCoroutine(StartTimer());
     }
@@ -131,7 +131,7 @@ public class beaker : MonoBehaviour
     }
     #endregion
 
-    public void initiate()//ºñÄ¿ ¼³Á¤ ÃÊ±âÈ­
+    public void initiate()//ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
     {
         StopCouroutine();
         fire.SetActive(false);

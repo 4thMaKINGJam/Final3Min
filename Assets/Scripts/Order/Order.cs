@@ -11,7 +11,7 @@ public class Order : MonoBehaviour
     [SerializeField] private Sprite[] CompleteImg;
     [SerializeField] private Sprite[] ItemImg;
 
-    private readonly float ORDER_TIME = 24f * 1000;
+    private readonly float ORDER_TIME = 42f * 1000;
     public bool timeOver;
     public int price;
 
