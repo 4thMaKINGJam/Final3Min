@@ -25,8 +25,11 @@ public class CookedItem : MonoBehaviour
             }
             else{
                 beaker babyBeaker = hit.collider.gameObject.GetComponent<beaker>();
+                Debug.Log("비커 확인");
                 if(babyBeaker.liquid != 0){
+                    Debug.Log("리퀴드 있음");
                     if(babyBeaker.itemCnt < 2 && babyBeaker.cooked == 0){
+                        Debug.Log("자리 있음, 완성안됨");
                         babyBeaker.food = ItemType;
                         GameManager.instance.MouseHasObject = false;
                         Destroy(gameObject);
