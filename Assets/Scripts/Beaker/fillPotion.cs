@@ -52,10 +52,10 @@ public class fillPotion : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Beaker")
             {
+                if (sBaseLiquid != 0) return;
                 beaker beakerCtrl = hit.collider.gameObject.GetComponent<beaker>();
                 beakerCtrl.initiate();
                 sendToPotion(beakerCtrl);
-                once = false;
             }
             else if (hit.collider.gameObject.tag == "Submit") {
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
