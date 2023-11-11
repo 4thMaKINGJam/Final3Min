@@ -11,6 +11,7 @@ public class OrderManager : MonoBehaviour
     private readonly int ORDER_COUNT_LIMIT = 3;
     private readonly List<GameObject> orderList = new List<GameObject>();
     private readonly List<Vector3> _position = new List<Vector3>();
+
     [SerializeField] private GameObject OrderPrefab;
 
     public WashMiniGame washer;
@@ -84,9 +85,11 @@ public class OrderManager : MonoBehaviour
 
         for (int i = 0; i < orderList.Count; i++)
         {
-            if (orderList[i].GetComponent<Order>().IsEqual(baseNum, items))
+            Order currentOrder = orderList[i].GetComponent<Order>();
+            if (currentOrder.IsEqual(baseNum, items))
             {
                 // add coin
+                GameManager.instance.ChangeMoney(currentOrder.price);
                 DiscardOrder(i);
                 UnityEngine.Debug.Log("correct");
                 return;

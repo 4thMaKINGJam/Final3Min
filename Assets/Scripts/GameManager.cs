@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int money;
+    private int money;
 
     void Awake() {
         instance = this;
@@ -35,5 +35,15 @@ public class GameManager : MonoBehaviour
     public void OnClickExit()
     {
         Application.Quit();
+    }
+
+    public void ChangeMoney(int x)
+    {
+        this.money += x;
+    }
+
+    public int GetMoney()
+    {
+        return this.money;
     }
 }
