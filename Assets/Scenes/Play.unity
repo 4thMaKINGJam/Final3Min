@@ -2317,17 +2317,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8724314435631764914, guid: 6f4722ff0a7576f4b8842ff24608bb0d, type: 3}
   m_PrefabInstance: {fileID: 1253496550}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1260667647 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1888248100235392663, guid: 1557c2342fbf914458e229118a1da756, type: 3}
-  m_PrefabInstance: {fileID: 1888248101159990376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c705e07d064bc6b46a04e0b6f238b620, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1266694336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6963480543477043413, guid: ec2843cf5052f6949809e4c35c683190, type: 3}
@@ -2679,7 +2668,7 @@ PrefabInstance:
     - target: {fileID: 6620206810665507056, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: washer
       value: 
-      objectReference: {fileID: 1260667647}
+      objectReference: {fileID: 1888248101159990377}
     - target: {fileID: 8320276728917976992, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4200,8 +4189,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4025164343780638849, guid: 1557c2342fbf914458e229118a1da756, type: 3}
+      propertyPath: washBGM
+      value: 
+      objectReference: {fileID: 2002471613}
+    - target: {fileID: 4025164343780638849, guid: 1557c2342fbf914458e229118a1da756, type: 3}
+      propertyPath: washClipBGM
+      value: 
+      objectReference: {fileID: 2002471615}
+    - target: {fileID: 4025164343780638849, guid: 1557c2342fbf914458e229118a1da756, type: 3}
+      propertyPath: bottleLeftScript
+      value: 
+      objectReference: {fileID: 1634530509}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1557c2342fbf914458e229118a1da756, type: 3}
+--- !u!114 &1888248101159990377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4025164343780638849, guid: 1557c2342fbf914458e229118a1da756, type: 3}
+  m_PrefabInstance: {fileID: 1888248101159990376}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9324b2548ad70489c5163d97d59bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &2596755870255585757
 Rigidbody2D:
   serializedVersion: 4

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WashMiniGame : MonoBehaviour
 {
-    public Slider progressBar; 
+    public Slider progressBar;
     private float fillAmount = 0.0f;
 
     public Sprite washerFilled;
@@ -19,7 +19,7 @@ public class WashMiniGame : MonoBehaviour
     private int spaceCnt;
 
     public static int bottleDirty = 0;
-    private bool barActive; 
+    private bool barActive;
 
     public BottleLeft bottleLeftScript;
 
@@ -66,7 +66,7 @@ public class WashMiniGame : MonoBehaviour
                 progressBar.gameObject.SetActive(false);
             }
         }
-        if(bottleDirty>0 && !washMode)
+        if (bottleDirty > 0 && !washMode)
         {
             spriteRenderer.sprite = washerFilled;
         }
@@ -75,7 +75,7 @@ public class WashMiniGame : MonoBehaviour
             spriteRenderer.sprite = washerEmpty;
             washMode = false;
         }
-        
+
     }
 
     void UpdateProgressBar()

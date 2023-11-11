@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1888248100235392874}
   - component: {fileID: 1888248100235392873}
   - component: {fileID: 1888248100235392872}
-  - component: {fileID: 1888248100235392663}
+  - component: {fileID: 4025164343780638849}
   m_Layer: 0
   m_Name: Washer
   m_TagString: Untagged
@@ -203,7 +203,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.375568, y: 3.89674}
   m_EdgeRadius: 0
---- !u!114 &1888248100235392663
+--- !u!114 &4025164343780638849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1888248100235392662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c705e07d064bc6b46a04e0b6f238b620, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a9324b2548ad70489c5163d97d59bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1888248100191489393}
