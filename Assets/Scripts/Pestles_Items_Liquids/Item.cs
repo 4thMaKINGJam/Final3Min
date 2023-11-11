@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Pestle","Bin"));
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
+                GameManager.instance.MouseHasObject = false;
                 Destroy(gameObject);
             }
             else{
@@ -27,6 +28,7 @@ public class Item : MonoBehaviour
                 if(!pestle.Isfull){
                     pestle.GetIn = true;
                     pestle.Item = ItemType;
+                    GameManager.instance.MouseHasObject = false;
                     Destroy(gameObject);
                 }
             }

@@ -95,6 +95,7 @@ public class Pestle : MonoBehaviour
                     MinigameCircle.SetActive(true);
                 }
                 else{  // 빻은 상태라면
+                    GameManager.instance.MouseHasObject = true;
                     gameObject.GetComponent<SpriteRenderer>().sprite = DefaultSprite;
                     Instantiate(CookedItem[Item], transform.position, Quaternion.identity);
 

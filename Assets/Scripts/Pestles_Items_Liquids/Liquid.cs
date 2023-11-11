@@ -17,15 +17,17 @@ public class Liquid : MonoBehaviour
     }
 
     void OnMouseDown(){
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker","Bin"));
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker","Bin")); 
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
+                GameManager.instance.MouseHasObject = false;
                 Destroy(gameObject);
             }
             else{
                 beaker babyBeaker = hit.collider.gameObject.GetComponent<beaker>();
                 if(babyBeaker.liquid == 0){
                     babyBeaker.food = liquidType; 
+                    GameManager.instance.MouseHasObject = false;
                     Destroy(gameObject);
                 }
             }

@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class fillPotion : MonoBehaviour
 {
-    [HideInInspector]//º£ÀÌ½º Àç·á : 4 ¹° 5 Æ÷µµÁÖ 6 ±â¸§
+    [HideInInspector]//ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ : 4 ï¿½ï¿½ 5 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 6 ï¿½â¸§
     public int sBaseLiquid = 0;
     
-    [HideInInspector]//¾ÆÀÌÅÛ Àç·á: 0 ¹ö¼¸ 1 ¾àÃÊ 2 ¾¾¾Ñ 3 ²É
+    [HideInInspector]//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½: 0 ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ï¿½ï¿½ 3 ï¿½ï¿½
     public int[] sItemArray = new int[4];
     
-    [HideInInspector]//±Á±â  : 0 ¹Ì¿Ï¼º 1 ¿Ï¼º 2 Å½
+    [HideInInspector]//ï¿½ï¿½ï¿½ï¿½  : 0 ï¿½Ì¿Ï¼ï¿½ 1 ï¿½Ï¼ï¿½ 2 Å½
     public int sCooked = 0;
     
-    [HideInInspector]//¾ÆÀÌÅÛ(°íÃ¼) °³¼ö
+    [HideInInspector]//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ã¼) ï¿½ï¿½ï¿½ï¿½
     public int sItemCnt = 0;
 
     public OrderManager comparePotion;
@@ -48,12 +48,7 @@ public class fillPotion : MonoBehaviour
             else if (hit.collider.gameObject.tag == "Submit") {
                 
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
-                Debug.Log("º£ÀÌ½º: " + sBaseLiquid);
-                Debug.Log("±Á±â: " + sCooked);
-                for (int i = 0; i < sItemArray.Length; i++) {
-                    Debug.Log("Àç·á ¹è¿­:" + i + "¹øÂ° " + sItemArray);
-                }
-                
+                GameManager.instance.MouseHasObject = false;
                 Destroy(this.gameObject);
             }
         }
@@ -65,7 +60,7 @@ public class fillPotion : MonoBehaviour
         Array.Copy(beakerCtrl.item, sItemArray, 4);
         sCooked = beakerCtrl.cooked;
         sItemCnt = beakerCtrl.itemCnt;
-        //Debug.Log("º£ÀÌ½º: "+ )
+        //Debug.Log("ï¿½ï¿½ï¿½Ì½ï¿½: "+ )
 
         if (sBaseLiquid == 4 && sCooked == 0)
         {

@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public Stopwatch stopwatch;
 
     public int money = 0;
-
+    
+    public bool MouseHasObject = false;
 
     void Awake() {
         instance = this;
