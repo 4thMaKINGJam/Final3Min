@@ -142,7 +142,7 @@ public class Order : MonoBehaviour
 
     public bool IsEqual(int baseNum, int[] items)
     {
-        if (baseNum != this.baseNum)
+        if (baseNum != this.baseNum + 4)
         {
             return false;
         }

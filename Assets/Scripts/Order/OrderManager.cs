@@ -71,9 +71,10 @@ public class OrderManager : MonoBehaviour
     // submit new potion
     public void SubmitPotion(int baseNum, int cooked, int[] items)
     {
-        //UnityEngine.Debug.Log("submitted!");
+        UnityEngine.Debug.Log("submitted!");
         if (cooked != 1)
         {
+            UnityEngine.Debug.Log("!!!@@@"+cooked);
             return;
         }
 
@@ -83,9 +84,11 @@ public class OrderManager : MonoBehaviour
             {
                 // add coin
                 DiscardOrder(i);
+                UnityEngine.Debug.Log("correct");
                 return;
             }
         }
+        UnityEngine.Debug.Log("wrong");
     }
 
     void CheckTimeOver()

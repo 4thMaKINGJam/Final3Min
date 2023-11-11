@@ -731,9 +731,9 @@ MonoBehaviour:
   - {fileID: -1669708266, guid: a91ee57471e804781916cb3cd4038124, type: 3}
   - {fileID: 1016070515, guid: a91ee57471e804781916cb3cd4038124, type: 3}
   ItemImg:
-  - {fileID: 1911889040, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: -539471446, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: 1153613693, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
+  - {fileID: 1911889040, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   - {fileID: 816790529, guid: 19d0e60ee1900a8498262941a8b7795f, type: 3}
   timeOver: 0
   price: 0

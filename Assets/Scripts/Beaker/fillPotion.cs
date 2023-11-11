@@ -18,21 +18,17 @@ public class fillPotion : MonoBehaviour
     public int sItemCnt = 0;
 
     public OrderManager comparePotion;
-    bool flag = false;
     void Update()
     {
-        if (flag)
-        {
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float x = Mathf.Clamp(mousepos.x, -8.5f, 8.5f);
             float y = Mathf.Clamp(mousepos.y, -4.5f, 4.5f);
             transform.position = new Vector2(x, y);
-        }
+        
     }
 
     void OnMouseDown()
     {
-        flag = true;
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker"));
         if (hit)
         {
@@ -45,7 +41,13 @@ public class fillPotion : MonoBehaviour
             else if (hit.collider.gameObject.tag == "Submit") {
                 
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
-                Destroy(this);
+                Debug.Log("베이스: " + sBaseLiquid);
+                Debug.Log("굽기: " + sCooked);
+                for (int i = 0; i < sItemArray.Length; i++) {
+                    Debug.Log("재료 배열:" + i + "번째 " + sItemArray);
+                }
+                
+                Destroy(this.gameObject);
             }
         }
     }
