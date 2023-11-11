@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    
+    public Stopwatch stopwatch;
 
     private int money;
+
 
     void Awake() {
         instance = this;
@@ -15,7 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        stopwatch = new Stopwatch();
     }
 
     // Update is called once per frame
