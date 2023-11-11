@@ -7,6 +7,7 @@ TagManager:
   - Bin
   - Potion
   - Beaker
+  - Submit
   layers:
   - Default
   - TransparentFX
