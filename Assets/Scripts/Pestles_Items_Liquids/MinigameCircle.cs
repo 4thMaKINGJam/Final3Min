@@ -11,14 +11,20 @@ public class MinigameCircle : MonoBehaviour
 
     private float BarPosX;
     private float BarScaleX;
+    private Vector3 dir = Vector3.right;
     void Start(){
         BarPosX = transform.parent.parent.position.x;
         BarScaleX = transform.parent.parent.lossyScale.x;
     }
     void Update()
     {
-        if(transform.position.x + transform.lossyScale.x/2 > BarPosX + BarScaleX/2)
-            transform.position = new Vector3(BarPosX - BarScaleX/2 + transform.lossyScale.x/2, transform.position.y, transform.position.z);
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        if(transform.position.x + transform.lossyScale.x * 2 > BarPosX + BarScaleX/2){
+            if(dir==Vector3.right)
+                dir = Vector3.left;
+        }else if(transform.position.x - transform.lossyScale.x/3 < BarPosX - BarScaleX/2){
+            if(dir==Vector3.left)
+                dir = Vector3.right;
+        }
+        transform.position += dir * moveSpeed * Time.deltaTime;
     }
 }

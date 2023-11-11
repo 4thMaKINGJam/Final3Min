@@ -9,7 +9,8 @@ public class PlayCount : MonoBehaviour
     public AudioSource originBGM;
     public AudioClip[] countSounds;
 
-
+    public GameObject blockObj;
+    public OrderManager orderManager;
 
     private void Start()
     {
@@ -37,6 +38,9 @@ public class PlayCount : MonoBehaviour
 
             rawImage.enabled = false;
         }
+        GameManager.instance.stopwatch.Start();
+        blockObj.SetActive(false);
+        orderManager.CreateFirstOrder();
         playBGM.Play();
     }
 }
