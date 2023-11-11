@@ -376,11 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 0
-  potions:
-  - {fileID: 21300000, guid: a8fab4501a1437c42abc1130fabb5401, type: 3}
-  - {fileID: 21300000, guid: b33c6fec008e328488cad35cd762e529, type: 3}
-  - {fileID: 21300000, guid: d3386604a8d09814e95a5558f7673558, type: 3}
-  - {fileID: 21300000, guid: 955d7db39ac9cfe40b3f7733d94de873, type: 3}
   fire: {fileID: 1075123}
 --- !u!95 &425719180
 Animator:
