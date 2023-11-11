@@ -105,14 +105,14 @@ public class beaker : MonoBehaviour
             waitTime--;
         }
         animator.SetInteger("CookRate", 1);
+        StartCoroutine(TimerFinished());
+    }
+
+    IEnumerator TimerFinished()
+    {
         yield return new WaitForSeconds(3f);
         animator.SetInteger("CookRate", 2);
         fire.SetActive(false);
-        TimerFinished();
-    }
-
-    void TimerFinished()
-    {
         this.enabled = false;
     }
 
@@ -121,7 +121,6 @@ public class beaker : MonoBehaviour
         waitTime += 3;
         //기존 코루틴 중지, 갱신된 시간으로 타이머 재시작
         StopCoroutine(beakerTimer);
-        animator.SetInteger("CookRate", 1);
         beakerTimer = StartCoroutine(StartTimer());
     }
     #endregion
