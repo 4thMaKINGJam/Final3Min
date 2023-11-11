@@ -40,6 +40,11 @@ public class fillPotion : MonoBehaviour
                 beakerCtrl.initiate();
                 sendToPotion(beakerCtrl);
             }
+            else if (hit.collider.gameObject.tag == "Submit") {
+                //OrderManager comparePotion = hit.collider.gameObject.GetComponent<OrderManager>();
+                //comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
+                Destroy(this);
+            }
         }
     }
 
