@@ -11,15 +11,19 @@ public class Order : MonoBehaviour
     [SerializeField] private Sprite[] CompleteImg;
     [SerializeField] private Sprite[] ItemImg;
 
-    private float ORDER_TIME = 24f * 1000;
+    private readonly float ORDER_TIME = 24f * 1000;
     public bool timeOver;
     public int price;
 
-    private int BASE_COUNT = 3;
-    private int ITEM_COUNT = 4;
+    private readonly int BASE_COUNT = 3;
+    private readonly int ITEM_COUNT = 4;
 
-    private int ITEM_IDX = 0;
-    private int COMPLETE_IDX = 2;
+    private readonly int ITEM_IDX = 0;
+    private readonly int COMPLETE_IDX = 2;
+
+    private readonly int[] PRICE_PER_BASE = {7, 11, 9};
+    private readonly int PRICE_PER_ITEM_COUNT = 5;
+
 
     private Color GREEN = Color.green;
     private Color YELLOW = Color.yellow;
@@ -27,6 +31,8 @@ public class Order : MonoBehaviour
 
     private int baseNum;
     private List<int> itemList;
+
+
     private void Awake()
     {
         _slider.transform.GetChild(0).GetComponent<Image>().color = GREEN;
@@ -92,6 +98,8 @@ public class Order : MonoBehaviour
                 transform.GetChild(idx++).GetComponent<SpriteRenderer>().sprite = ItemImg[i];
             }
         }
+
+        this.price = PRICE_PER_ITEM_COUNT * itemCount + PRICE_PER_BASE[baseNum];
     }
 
     // Update is called once per frame
