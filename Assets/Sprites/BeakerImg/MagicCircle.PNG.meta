@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09f38f9f60f4b4a4faf4632560b40aeb
+guid: c93e3dd5b0e3a6e42a51a97115c0ef1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire_0
+      name: MagicCircle_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 939
-        width: 107
-        height: 58
+        x: 84
+        y: 954
+        width: 155
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 150b8e2dafb25a148a7a4488c512ef61
-      internalID: -355385813
+      spriteID: 2850c6cedd6cd5e42b12aac15d9772f0
+      internalID: -261845824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_1
+      name: MagicCircle_1
       rect:
         serializedVersion: 2
-        x: 193
-        y: 938
-        width: 107
-        height: 56
+        x: 277
+        y: 954
+        width: 156
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,40 +152,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a05164a5d6ac21468373abb09fbb96a
-      internalID: -1346592481
+      spriteID: 6eed38f63fa470c4ba53e7c0a1aac030
+      internalID: 1263978864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_2
+      name: MagicCircle_2
       rect:
         serializedVersion: 2
-        x: 251
-        y: 986
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5820b2e9ddde0ca4c8f7e877edbcedda
-      internalID: 87340606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire_3
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 938
-        width: 107
+        x: 487
+        y: 957
+        width: 155
         height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cc26f74b887dbc4f8aa748c851ab046
-      internalID: -1460509288
+      spriteID: 130741df6158d6b4296fe26e764e18a9
+      internalID: -1057048514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_4
+      name: MagicCircle_3
       rect:
         serializedVersion: 2
-        x: 454
-        y: 938
-        width: 107
-        height: 58
+        x: 686
+        y: 957
+        width: 156
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,50 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57d161dc2e02a4a4b878a9b4b5c8992a
-      internalID: -1950594537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire_5
-      rect:
-        serializedVersion: 2
-        x: 588
-        y: 937
-        width: 107
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b77aa91fb80ac04cba48f60e5d0e1a7
-      internalID: 476054647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fire_6
-      rect:
-        serializedVersion: 2
-        x: 423
-        y: 975
-        width: 6
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1209bd7be5452f648a81fddde0868f55
-      internalID: 1732387965
+      spriteID: 7e1b4f043017b114c8c2aca1f922ae28
+      internalID: -1541907237
       vertices: []
       indices: 
       edges: []
@@ -274,13 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fire_1: -1346592481
-      Fire_6: 1732387965
-      Fire_2: 87340606
-      Fire_3: -1460509288
-      Fire_5: 476054647
-      Fire_4: -1950594537
-      Fire_0: -355385813
+      MagicCircle_3: -1541907237
+      MagicCircle_2: -1057048514
+      MagicCircle_1: 1263978864
+      MagicCircle_0: -261845824
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
