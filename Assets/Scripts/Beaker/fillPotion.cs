@@ -16,6 +16,8 @@ public class fillPotion : MonoBehaviour
     
     [HideInInspector]//아이템(고체) 개수
     public int sItemCnt = 0;
+
+    public OrderManager comparePotion;
     bool flag = false;
     void Update()
     {
@@ -41,8 +43,8 @@ public class fillPotion : MonoBehaviour
                 sendToPotion(beakerCtrl);
             }
             else if (hit.collider.gameObject.tag == "Submit") {
-                //OrderManager comparePotion = hit.collider.gameObject.GetComponent<OrderManager>();
-                //comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
+                
+                comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
                 Destroy(this);
             }
         }
@@ -53,6 +55,7 @@ public class fillPotion : MonoBehaviour
         Array.Copy(beakerCtrl.item, sItemArray, 4);
         sCooked = beakerCtrl.cooked;
         sItemCnt = beakerCtrl.itemCnt;
+        //Debug.Log("베이스: "+ )
 
         beakerCtrl.enabled = true;
     }
