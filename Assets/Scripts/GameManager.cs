@@ -28,4 +28,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("BottleWash");
     }
+    public void OnClickRestart()
+    {
+        SceneManager.LoadScene("Title");
+    }
+    public void OnClickExit()
+    {
+        Application.Quit();
+    }
 }

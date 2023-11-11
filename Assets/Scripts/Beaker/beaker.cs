@@ -18,19 +18,12 @@ public class beaker : MonoBehaviour
     private Coroutine beakerTimer;
 
     [SerializeField]
-    private Sprite[] potions = new Sprite[4];
-    [SerializeField]
     private GameObject fire;
     private Animator animator;
     
 
     void OnEnable() {//enable 
         Debug.Log("B. 초기화 됐습니다!");
-        animator = this.GetComponent<Animator>();
-        animator.enabled = false;
-        gameObject.GetComponent<SpriteRenderer>().sprite = potions[0];
-        animator.SetInteger("CookRate", 0);
-
         food = 7;
         liquid = 0;
         for (int i = 0; i < item.Length; i++)
@@ -41,13 +34,16 @@ public class beaker : MonoBehaviour
         itemCnt = 0;
         foodCnt = 0;
         waitTime = 7.0f;
+        
+        animator = this.GetComponent<Animator>();
+        animator.enabled = false;
+        animator.SetInteger("progress", cooked);
+
+        
     }
 
         void Update()
     {
-        if(Input.GetMouseButtonDown(1)){
-            food = 2;
-        }
         if (food !=7)
         {
             checkFood(food);
@@ -78,15 +74,7 @@ public class beaker : MonoBehaviour
     #region change color
     void changeColor(int baseColor) {
         animator.enabled = true;
-        if (baseColor == 4){
-            gameObject.GetComponent<SpriteRenderer>().sprite = potions[1];
-        }
-        else if (baseColor == 5) {
-            gameObject.GetComponent<SpriteRenderer>().sprite = potions[2];
-        } 
-        else {
-            gameObject.GetComponent<SpriteRenderer>().sprite = potions[3];
-        }
+        animator.SetInteger("color", baseColor);
     }
     #endregion
 
@@ -114,16 +102,18 @@ public class beaker : MonoBehaviour
             waitTime--;
             Debug.Log("B.완성까지"+waitTime);
         }
-        animator.SetInteger("CookRate", 1);
         StartCoroutine(TimerFinished());
     }
 
     IEnumerator TimerFinished()
     {
+        Debug.Log("B. 완성됐습니다." + cooked);
+        animator.SetInteger("progress", cooked);//1
         yield return new WaitForSeconds(3f);
-        animator.SetInteger("CookRate", 2);
         fire.SetActive(false);
-        Debug.Log("B. 끝났수");
+        cooked = 2;
+        animator.SetInteger("progress", cooked);
+        Debug.Log("B. 끝났수"+cooked);
         this.GetComponent<beaker>().enabled = false;
     }
 

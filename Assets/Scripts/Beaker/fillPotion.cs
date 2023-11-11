@@ -49,13 +49,6 @@ public class fillPotion : MonoBehaviour
         sCooked = beakerCtrl.cooked;
         sItemCnt = beakerCtrl.itemCnt;
 
-        Debug.Log("값 전달 받기! 굽기:" + sCooked);
-        for (int i = 0; i < sItemArray.Length; i++)
-        {
-            Debug.Log(sItemArray[i]);
-        }
-
         beakerCtrl.enabled = true;
-
     }
 }
