@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Order : MonoBehaviour
 {
     Stopwatch stopwatch;
-    private Potion potion;
     [SerializeField] private Slider _slider;
     [SerializeField] private Sprite[] CompleteImg;
     [SerializeField] private Sprite[] ItemImg;
@@ -26,6 +25,8 @@ public class Order : MonoBehaviour
     private Color YELLOW = Color.yellow;
     private Color RED = Color.red;
 
+    private int baseNum;
+    private List<int> itemList;
     private void Awake()
     {
         _slider.transform.GetChild(0).GetComponent<Image>().color = GREEN;
@@ -50,25 +51,26 @@ public class Order : MonoBehaviour
 
     void SetRecipe()
     {
-        System.Random prng = new System.Random();
+        System.Random prng = new System.Random(Random.Range(0, int.MaxValue));
 
         // -- set base
-        int base_num = prng.Next(0, BASE_COUNT);
-        transform.GetChild(COMPLETE_IDX).GetComponent<SpriteRenderer>().sprite = CompleteImg[base_num];
+        baseNum = prng.Next(0, BASE_COUNT);
+        transform.GetChild(COMPLETE_IDX).GetComponent<SpriteRenderer>().sprite = CompleteImg[baseNum];
 
         // -- set items
-        List<int> potionItem = new List<int>();
+        itemList = new List<int>();
+
         // number of item
         int itemCount = prng.Next(1, 3);
 
         // assign item
         for (int i = 0; i < itemCount; i++)
         {
-            potionItem.Add(1);
+            itemList.Add(1);
         }
         for (int i = 0; i < ITEM_COUNT - itemCount; i++)
         {
-            potionItem.Add(0);
+            itemList.Add(0);
         }
 
         // shuffle
@@ -76,22 +78,20 @@ public class Order : MonoBehaviour
         {
             int random_idx = prng.Next(i, ITEM_COUNT - 1);
 
-            int temp = potionItem[random_idx];
-            potionItem[random_idx] = potionItem[i];
-            potionItem[i] = temp;
+            int temp = itemList[random_idx];
+            itemList[random_idx] = itemList[i];
+            itemList[i] = temp;
         }
 
         int idx = ITEM_IDX;
 
         for (int i=0; i < ITEM_COUNT; i++)
         {
-            if (potionItem[i] > 0)
+            if (itemList[i] > 0)
             {
                 transform.GetChild(idx++).GetComponent<SpriteRenderer>().sprite = ItemImg[i];
             }
         }
-
-        this.potion = new Potion(base_num, potionItem);
     }
 
     // Update is called once per frame
@@ -108,15 +108,15 @@ public class Order : MonoBehaviour
     {
         if (stopwatch.ElapsedMilliseconds <= ORDER_TIME / 3)
         {
-            setSliderColor(GREEN);
+            SetSliderColor(GREEN);
         }
         else if (stopwatch.ElapsedMilliseconds <= ORDER_TIME / 3 * 2)
         {
-            setSliderColor(YELLOW);
+            SetSliderColor(YELLOW);
         }
         else if (stopwatch.ElapsedMilliseconds <= ORDER_TIME)
         {
-            setSliderColor(RED);
+            SetSliderColor(RED);
         }
         else
         {
@@ -135,8 +135,25 @@ public class Order : MonoBehaviour
         _slider.value = value;
     }
 
-    private void setSliderColor(Color c)
+    private void SetSliderColor(Color c)
     {
         _slider.transform.GetChild(0).GetComponent<Image>().color = c;
+    }
+
+    public bool IsEqual(int baseNum, int[] items)
+    {
+        if (baseNum != this.baseNum)
+        {
+            return false;
+        }
+
+        for (int i=0; i<ITEM_COUNT; i++)
+        {
+            if (items[i] != this.itemList[i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
