@@ -35,7 +35,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: color_cook
-    m_EventTreshold: 60
+    m_EventTreshold: 61
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2534320562638551166}
   m_Solo: 0
@@ -210,7 +210,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -292,7 +292,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: color_cook
-    m_EventTreshold: 61
+    m_EventTreshold: 60
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5741464265701052670}
   m_Solo: 0
