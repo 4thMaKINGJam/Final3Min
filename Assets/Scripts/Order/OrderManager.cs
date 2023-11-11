@@ -65,8 +65,9 @@ public class OrderManager : MonoBehaviour
     }
 
     // submit new potion
-    void SubmitPotion(int base_num, int cooked, int[] items)
+    public void SubmitPotion(int base_num, int cooked, int[] items)
     {
+        UnityEngine.Debug.Log("submitted!");
         //for (int i = 0; i < orderList.Count; i++)
         //{
         //    if (orderList[i])
