@@ -1,22 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Potion : MonoBehaviour
+public class Potion
 {
     public int Base;
-    public int[] Items = { 0, 0, 0, 0 };
+    public List<int> Items;
     public int Cooked;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public Potion(int base_num, List<int> items)
     {
-        
+        this.Base = base_num;
+        this.Items = items;
     }
 }

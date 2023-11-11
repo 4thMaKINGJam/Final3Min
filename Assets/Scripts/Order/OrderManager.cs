@@ -7,7 +7,7 @@ public class OrderManager : MonoBehaviour
 {
     Stopwatch stopwatch;
 
-    private float initial_interval = 5f;
+    private float INITIAL_INTERVAL = 5f;
     private int ORDER_COUNT_LIMIT = 3;
     private List<GameObject> orderList = new List<GameObject>();
     private List<Vector3> _position = new List<Vector3>();
@@ -25,8 +25,8 @@ public class OrderManager : MonoBehaviour
     void Start()
     {
         CreateNewOrder();
-        Invoke(nameof(CreateNewOrder), initial_interval);
-        Invoke(nameof(CreateNewOrder), initial_interval * 2);
+        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL);
+        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL * 2);
     }
 
     // Update is called once per frame
@@ -42,8 +42,6 @@ public class OrderManager : MonoBehaviour
         {
             return;
         }
-        UnityEngine.Debug.Log(orderList.Count);
-        UnityEngine.Debug.Log(_position[orderList.Count]);
         GameObject new_order = Instantiate(OrderPrefab, _position[orderList.Count], transform.rotation);
         orderList.Add(new_order);
 
@@ -63,18 +61,20 @@ public class OrderManager : MonoBehaviour
         }
 
         Destroy(temp);
+        CreateNewOrder();
     }
 
     // submit new potion
-    void SubmitPotion(Potion new_potion)
+    public void SubmitPotion(int base_num, int cooked, int[] items)
     {
-        for (int i = 0; i < orderList.Count; i++)
-        {
-            if (orderList[i])
-            {
-                DiscardOrder(i);
-            }
-        }
+        UnityEngine.Debug.Log("submitted!");
+        //for (int i = 0; i < orderList.Count; i++)
+        //{
+        //    if (orderList[i])
+        //    {
+        //        DiscardOrder(i);
+        //    }
+        //}
     }
 
     void CheckTimeOver()

@@ -23,13 +23,13 @@ public class CookedItem : MonoBehaviour
                 Destroy(gameObject);
             }
             else{
-                Beaker beaker = hit.collider.gameObject.GetComponent<Beaker>();
-                //if(beaker.liquid != 0){
-                    if(beaker.itemCnt < 2){
-                        beaker.food = ItemType;
+                beaker babyBeaker = hit.collider.gameObject.GetComponent<beaker>();
+                if(babyBeaker.liquid != 0){
+                    if(babyBeaker.itemCnt < 2 && babyBeaker.cooked == 0){
+                        babyBeaker.food = ItemType;
                         Destroy(gameObject);
                     }
-                //}
+                }
             }
         } 
     }
