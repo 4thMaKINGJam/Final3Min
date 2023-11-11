@@ -85,10 +85,8 @@ public class OrderManager : MonoBehaviour
     {
         washer.IncreaseDirtyBottle();
 
-        UnityEngine.Debug.Log("submitted!");
         if (cooked != 1)
         {
-            UnityEngine.Debug.Log("!!!@@@"+cooked);
             CreatePriceCanvas(0);
             return;
         }
@@ -104,13 +102,11 @@ public class OrderManager : MonoBehaviour
 
                 DiscardOrder(i);
                 
-                UnityEngine.Debug.Log("correct");
                 audioPlayer.PlayOneShot(correctSound);
                 return;
             }
             CreatePriceCanvas(0);
         }
-        UnityEngine.Debug.Log("wrong");
         audioPlayer.PlayOneShot(wrongSound);
     }
 
@@ -147,14 +143,6 @@ public class OrderManager : MonoBehaviour
             {
                 priceText.SetText("+" + price); 
             }
-            else
-            {
-                UnityEngine.Debug.LogWarning("priceText is not a TextMeshProUGUI component.");
-            }
-        }
-        else
-        {
-            UnityEngine.Debug.LogWarning("priceText not found under priceCanvas.");
         }
     }
 }

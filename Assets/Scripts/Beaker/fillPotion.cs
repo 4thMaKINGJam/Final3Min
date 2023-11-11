@@ -5,26 +5,27 @@ using UnityEngine;
 
 public class fillPotion : MonoBehaviour
 {
-    [HideInInspector]//���̽� ��� : 4 �� 5 ������ 6 �⸧
+    [HideInInspector]
     public int sBaseLiquid = 0;
     
-    [HideInInspector]//������ ���: 0 ���� 1 ���� 2 ���� 3 ��
+    [HideInInspector]
     public int[] sItemArray = new int[4];
     
-    [HideInInspector]//����  : 0 �̿ϼ� 1 �ϼ� 2 Ž
+    [HideInInspector]
     public int sCooked = 0;
     
-    [HideInInspector]//������(��ü) ����
+    [HideInInspector]
     public int sItemCnt = 0;
 
     public OrderManager comparePotion;
     [SerializeField]
     private Animator animator;
-
+    
     public float fadeOutTime = 0.7f;
 
     private SpriteRenderer spriteRenderer;
     private bool flag = false;
+    private bool once = true;
 
     private void Start()
     {
@@ -50,14 +51,15 @@ public class fillPotion : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker", "Submit"));
         if (hit)
         {
-            if (hit.collider.gameObject.tag == "Beaker")
+            if (hit.collider.gameObject.tag == "Beaker" && once)
             {
                 beaker beakerCtrl = hit.collider.gameObject.GetComponent<beaker>();
                 beakerCtrl.initiate();
                 sendToPotion(beakerCtrl);
+                once = false;
             }
             else if (hit.collider.gameObject.tag == "Submit") {
-                
+                once = true;
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
                 GameManager.instance.MouseHasObject = false;
                 flag = true;
@@ -72,7 +74,6 @@ public class fillPotion : MonoBehaviour
         Array.Copy(beakerCtrl.item, sItemArray, 4);
         sCooked = beakerCtrl.cooked;
         sItemCnt = beakerCtrl.itemCnt;
-        //Debug.Log("���̽�: "+ )
 
         if (sBaseLiquid == 4 && sCooked == 0)
         {

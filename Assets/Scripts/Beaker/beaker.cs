@@ -25,7 +25,6 @@ public class beaker : MonoBehaviour
     
 
     void OnEnable() {
-        Debug.Log("B. 초기화 됐습니다!");
         food = 7;
         liquid = 0;
         for (int i = 0; i < item.Length; i++)
@@ -141,7 +140,6 @@ public class beaker : MonoBehaviour
 
     public void initiate()//비커 설정 초기화
     {
-        Debug.Log("비커 초기화");
         StopCouroutine();
         fire.SetActive(false);
         animator.SetInteger("color", 0);//init으로 돌아옴
