@@ -2699,30 +2699,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1842802016491463125, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730424815911827303, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5272354095539112327, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_Name
       value: OrderBoard
-      objectReference: {fileID: 0}
-    - target: {fileID: 5300392359026840971, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6620206810665507056, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: washer
       value: 
       objectReference: {fileID: 1888248101159990377}
-    - target: {fileID: 6620206810665507056, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
-      propertyPath: pricePrefab
-      value: 
-      objectReference: {fileID: 3787035291011879093, guid: 24efbfa7ee735e14493ba524e8c7edca, type: 3}
     - target: {fileID: 8320276728917976992, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -87,6 +87,7 @@ public class OrderManager : MonoBehaviour
 
         if (cooked != 1)
         {
+            audioPlayer.PlayOneShot(wrongSound);
             CreatePriceCanvas(0);
             return;
         }
