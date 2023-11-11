@@ -9,6 +9,8 @@ public class PlayCount : MonoBehaviour
     public AudioSource originBGM;
     public AudioClip[] countSounds;
 
+
+
     private void Start()
     {
         foreach (RawImage rawImage in countImages)
@@ -24,15 +26,17 @@ public class PlayCount : MonoBehaviour
         for (int i = 0; i < countImages.Length; i++)
         {
             RawImage rawImage = countImages[i];
+
+            yield return new WaitForSeconds(0.5f);
+
             rawImage.enabled = true;
 
             originBGM.PlayOneShot(countSounds[i]);
 
-            yield return new WaitForSeconds(0.9f);
+            yield return new WaitForSeconds(0.5f);
 
             rawImage.enabled = false;
         }
-
         playBGM.Play();
     }
 }
