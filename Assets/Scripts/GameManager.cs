@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickPlay()
     {
-        SceneManager.LoadScene("BottleWash");
+        SceneManager.LoadScene("Play");
     }
     public void OnClickRestart()
     {

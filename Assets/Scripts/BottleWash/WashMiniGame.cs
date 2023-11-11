@@ -78,4 +78,17 @@ public class WashMiniGame : MonoBehaviour
             Debug.Log(bottleDirty);
         }
     }
+
+    public void IncreaseDirtyBottle()
+    {
+        StartCoroutine(BottleUp());
+    }
+
+    IEnumerator BottleUp()
+    {
+        yield return new WaitForSeconds(3f);
+
+        bottleDirty++;
+    }
+
 }

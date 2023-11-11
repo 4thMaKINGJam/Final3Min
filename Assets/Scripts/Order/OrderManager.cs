@@ -13,6 +13,8 @@ public class OrderManager : MonoBehaviour
     private readonly List<Vector3> _position = new List<Vector3>();
     [SerializeField] private GameObject OrderPrefab;
 
+    public WashMiniGame washer;
+
     private void Awake()
     {
         for (int i = 0; i < 4; i++)
@@ -71,6 +73,8 @@ public class OrderManager : MonoBehaviour
     // submit new potion
     public void SubmitPotion(int baseNum, int cooked, int[] items)
     {
+        washer.IncreaseDirtyBottle();
+
         UnityEngine.Debug.Log("submitted!");
         if (cooked != 1)
         {

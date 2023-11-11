@@ -11,7 +11,6 @@ public class BottleClick : MonoBehaviour
         GameObject bottleCreated = Instantiate(bottlePrefab);
         bottleCreated.GetComponent<fillPotion>().comparePotion = orderBoard.GetComponent<OrderManager>();
         gameObject.SetActive(false);
-        WashMiniGame.bottleDirty++;
         BottleLeft.bottleLeft--;
     }
 }
