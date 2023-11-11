@@ -65,15 +65,15 @@ public class OrderManager : MonoBehaviour
     }
 
     // submit new potion
-    void SubmitPotion(Potion new_potion)
+    void SubmitPotion(int base_num, int cooked, int[] items)
     {
-        for (int i = 0; i < orderList.Count; i++)
-        {
-            if (orderList[i])
-            {
-                DiscardOrder(i);
-            }
-        }
+        //for (int i = 0; i < orderList.Count; i++)
+        //{
+        //    if (orderList[i])
+        //    {
+        //        DiscardOrder(i);
+        //    }
+        //}
     }
 
     void CheckTimeOver()
