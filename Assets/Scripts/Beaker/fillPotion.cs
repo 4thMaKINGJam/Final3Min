@@ -37,12 +37,12 @@ public class fillPotion : MonoBehaviour
 
     void Update()
     {
-        if (flag) return;
+            if (flag) return;
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float x = Mathf.Clamp(mousepos.x, -8.5f, 8.5f);
             float y = Mathf.Clamp(mousepos.y, -4.5f, 4.5f);
             transform.position = new Vector2(x, y);
-        
+            
     }
 
     void OnMouseDown()
@@ -52,11 +52,10 @@ public class fillPotion : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Beaker")
             {
-                if (sBaseLiquid != 0) return;
                 beaker beakerCtrl = hit.collider.gameObject.GetComponent<beaker>();
                 beakerCtrl.initiate();
                 sendToPotion(beakerCtrl);
-                
+                once = false;
             }
             else if (hit.collider.gameObject.tag == "Submit") {
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
