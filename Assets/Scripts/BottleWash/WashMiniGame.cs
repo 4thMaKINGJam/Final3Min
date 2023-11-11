@@ -13,6 +13,8 @@ public class WashMiniGame : MonoBehaviour
     private bool washMode = false;
     private SpriteRenderer spriteRenderer;
 
+    public AudioSource washBGM;
+
     public static int bottleDirty = 0;
     private bool barActive; 
 
@@ -43,6 +45,7 @@ public class WashMiniGame : MonoBehaviour
             if (fillAmount >= 1f)
             {
                 bottleLeftScript.IncreaseBottleLeft();
+                washBGM.Play();
                 fillAmount = 0f;
                 UpdateProgressBar();
                 barActive = false;
