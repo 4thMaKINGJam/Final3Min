@@ -11,6 +11,11 @@ public class OrderManager : MonoBehaviour
     private readonly int ORDER_COUNT_LIMIT = 3;
     private readonly float DEFAULT_DELAY = 3f;
 
+    [SerializeField] private AudioClip correctSound;
+    [SerializeField] private AudioClip wrongSound;
+    [SerializeField] private AudioClip timeoutSound;
+    [SerializeField] private AudioSource audioPlayer;
+
     private readonly List<GameObject> orderList = new List<GameObject>();
     private readonly List<Vector3> _position = new List<Vector3>();
 
@@ -93,11 +98,14 @@ public class OrderManager : MonoBehaviour
                 // add coin
                 GameManager.instance.ChangeMoney(currentOrder.price);
                 DiscardOrder(i);
+                
                 UnityEngine.Debug.Log("correct");
+                audioPlayer.PlayOneShot(correctSound);
                 return;
             }
         }
         UnityEngine.Debug.Log("wrong");
+        audioPlayer.PlayOneShot(wrongSound);
     }
 
     void CheckTimeOver()
@@ -106,6 +114,7 @@ public class OrderManager : MonoBehaviour
         {
             if (orderList[i].GetComponent<Order>().timeOver)
             {
+                audioPlayer.PlayOneShot(timeoutSound);
                 DiscardOrder(i);
             }
         }
