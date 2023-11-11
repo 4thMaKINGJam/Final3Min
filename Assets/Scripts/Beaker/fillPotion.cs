@@ -25,7 +25,6 @@ public class fillPotion : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private bool flag = false;
-    private bool once = true;
 
     private void Start()
     {
@@ -51,16 +50,14 @@ public class fillPotion : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward, 15, LayerMask.GetMask("Beaker", "Submit"));
         if (hit)
         {
-            if (hit.collider.gameObject.tag == "Beaker" && once)
+            if (hit.collider.gameObject.tag == "Beaker")
             {
                 if(sBaseLiquid != 0) return;
                 beaker beakerCtrl = hit.collider.gameObject.GetComponent<beaker>();
                 beakerCtrl.initiate();
                 sendToPotion(beakerCtrl);
-                once = false;
             }
             else if (hit.collider.gameObject.tag == "Submit") {
-                once = true;
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
                 GameManager.instance.MouseHasObject = false;
                 flag = true;
