@@ -89,6 +89,7 @@ public class OrderManager : MonoBehaviour
         if (cooked != 1)
         {
             UnityEngine.Debug.Log("!!!@@@"+cooked);
+            CreatePriceCanvas(0);
             return;
         }
 
@@ -107,6 +108,7 @@ public class OrderManager : MonoBehaviour
                 audioPlayer.PlayOneShot(correctSound);
                 return;
             }
+            CreatePriceCanvas(0);
         }
         UnityEngine.Debug.Log("wrong");
         audioPlayer.PlayOneShot(wrongSound);

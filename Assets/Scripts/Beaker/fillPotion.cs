@@ -24,6 +24,7 @@ public class fillPotion : MonoBehaviour
     public float fadeOutTime = 0.7f;
 
     private SpriteRenderer spriteRenderer;
+    private bool flag = false;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class fillPotion : MonoBehaviour
 
     void Update()
     {
+        if (flag) return;
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float x = Mathf.Clamp(mousepos.x, -8.5f, 8.5f);
             float y = Mathf.Clamp(mousepos.y, -4.5f, 4.5f);
@@ -58,6 +60,7 @@ public class fillPotion : MonoBehaviour
                 
                 comparePotion.SubmitPotion(sBaseLiquid, sCooked, sItemArray);
                 GameManager.instance.MouseHasObject = false;
+                flag = true;
                 StartCoroutine(FadeOut());
             }
         }
