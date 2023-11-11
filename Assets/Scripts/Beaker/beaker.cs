@@ -10,8 +10,8 @@ public class beaker : MonoBehaviour
     public int liquid { get; private set; }
     public int[] item { get; private set; } = new int[4];
     public int cooked { get; private set; }
-
     public int itemCnt { get; private set; }
+
     int foodCnt;
 
     float waitTime;
@@ -25,6 +25,7 @@ public class beaker : MonoBehaviour
     
 
     void OnEnable() {//enable 
+        Debug.Log("B. 초기화 됐습니다!");
         animator = this.GetComponent<Animator>();
         animator.enabled = false;
         gameObject.GetComponent<SpriteRenderer>().sprite = potions[0];
@@ -42,14 +43,11 @@ public class beaker : MonoBehaviour
         waitTime = 7.0f;
     }
 
-
-    void Update()
+        void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        if(Input.GetMouseButtonDown(1)){
             food = 2;
         }
-
         if (food !=7)
         {
             checkFood(food);
@@ -62,12 +60,9 @@ public class beaker : MonoBehaviour
     {
         if (foodType < 4)//food가 재료면 item에 들어왔다고 추가
         {
+            Debug.Log("B. food 들어왔어요:"+ foodType);
             itemCnt++;
             item[foodType]++;
-            for (int i = 0; i < item.Length; i++)
-            {
-                Debug.Log(item[i]);
-            }
         }
         else if (foodType < 7)// food가 액체면 liquid에 추가, 비커 색깔 바꾸기
         {
@@ -99,6 +94,7 @@ public class beaker : MonoBehaviour
     /***아이템이 들어올 때 7초, 3초 추가***/
     void timerCheck(int count)
     {
+        Debug.Log("시간 잴게요~" + count);
         if (count == 1)//처음이라면 7초 타이머 시작
         {
             beakerTimer = StartCoroutine(StartTimer());
@@ -116,6 +112,7 @@ public class beaker : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             waitTime--;
+            Debug.Log("B.완성까지"+waitTime);
         }
         animator.SetInteger("CookRate", 1);
         StartCoroutine(TimerFinished());
@@ -126,6 +123,7 @@ public class beaker : MonoBehaviour
         yield return new WaitForSeconds(3f);
         animator.SetInteger("CookRate", 2);
         fire.SetActive(false);
+        Debug.Log("B. 끝났수");
         this.GetComponent<beaker>().enabled = false;
     }
 
@@ -134,6 +132,7 @@ public class beaker : MonoBehaviour
         waitTime += 3;
         //기존 코루틴 중지, 갱신된 시간으로 타이머 재시작
         StopCoroutine(beakerTimer);
+        Debug.Log("B. 3초 추가!");
         beakerTimer = StartCoroutine(StartTimer());
     }
 
@@ -141,4 +140,12 @@ public class beaker : MonoBehaviour
         StopAllCoroutines();
     }
     #endregion
+
+    public void initiate()//비커 설정 초기화
+    {
+        Debug.Log("비커 초기화");
+        StopCouroutine();
+        fire.SetActive(false);
+        this.enabled = false;
+    }
 }
