@@ -29,13 +29,7 @@ public class OrderManager : MonoBehaviour
         _position.Add(transform.GetChild(3).gameObject.transform.position);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        CreateNewOrder();
-        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL);
-        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL * 2);
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -109,4 +103,10 @@ public class OrderManager : MonoBehaviour
         }
     }
 
+    public void CreateFirstOrder()
+    {
+        CreateNewOrder();
+        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL);
+        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL * 2);
+    }
 }
