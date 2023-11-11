@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1982613880059016747}
   - component: {fileID: 4712582615922758370}
   - component: {fileID: 4215967985165686174}
+  - component: {fileID: 6780088664964572337}
   m_Layer: 5
   m_Name: PriceText
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6780088664964572337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203262385980472529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b8fd21a5488614993c997b9e548d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 5061189566950074111}
 --- !u!1 &3787035291011879093
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +160,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 946505151155292438}
-  - component: {fileID: 2279741856764876501}
   - component: {fileID: 6268115163481425882}
   - component: {fileID: 1908786345985658289}
   - component: {fileID: 4059922197211324285}
@@ -179,21 +192,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2279741856764876501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3787035291011879093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b8fd21a5488614993c997b9e548d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 0.7
-  moveDistance: 5
-  canvasGroup: {fileID: 5061189566950074111}
 --- !u!223 &6268115163481425882
 Canvas:
   m_ObjectHideFlags: 0
