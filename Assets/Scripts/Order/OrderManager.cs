@@ -15,6 +15,11 @@ public class OrderManager : MonoBehaviour
 
     private void Awake()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
+        }
+
         // collect position info
         _position.Add(transform.GetChild(1).gameObject.transform.position);
         _position.Add(transform.GetChild(2).gameObject.transform.position);
