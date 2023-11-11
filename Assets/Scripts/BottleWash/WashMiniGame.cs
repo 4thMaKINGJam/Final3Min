@@ -14,6 +14,9 @@ public class WashMiniGame : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public AudioSource washBGM;
+    public AudioSource washClipBGM;
+    public AudioClip[] washClips;
+    private int spaceCnt;
 
     public static int bottleDirty = 0;
     private bool barActive; 
@@ -35,6 +38,16 @@ public class WashMiniGame : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 fillAmount += 0.1f;
+                spaceCnt++;
+                if (spaceCnt % 2 == 1)
+                {
+                    washClipBGM.PlayOneShot(washClips[0]);
+
+                }
+                else
+                {
+                    washClipBGM.PlayOneShot(washClips[1]);
+                }
                 UpdateProgressBar();
             }
 
@@ -47,6 +60,7 @@ public class WashMiniGame : MonoBehaviour
                 bottleLeftScript.IncreaseBottleLeft();
                 washBGM.Play();
                 fillAmount = 0f;
+                spaceCnt = 0;
                 UpdateProgressBar();
                 barActive = false;
                 progressBar.gameObject.SetActive(false);

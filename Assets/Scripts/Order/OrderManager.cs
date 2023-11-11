@@ -18,24 +18,18 @@ public class OrderManager : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
-        }
-
         // collect position info
         _position.Add(transform.GetChild(1).gameObject.transform.position);
         _position.Add(transform.GetChild(2).gameObject.transform.position);
         _position.Add(transform.GetChild(3).gameObject.transform.position);
+
+        for (int i = 0; i < ORDER_COUNT_LIMIT; i++)
+        {
+            transform.GetChild(i + 1).GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        CreateNewOrder();
-        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL);
-        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL * 2);
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -52,7 +46,7 @@ public class OrderManager : MonoBehaviour
         }
         GameObject new_order = Instantiate(OrderPrefab, _position[orderList.Count], transform.rotation);
         orderList.Add(new_order);
-
+        transform.GetChild(orderList.Count).GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void DiscardOrder(int idx)
@@ -64,7 +58,13 @@ public class OrderManager : MonoBehaviour
         // fix position
         for (int i=0; i < orderList.Count; i++)
         {
+            transform.GetChild(i + 1).GetComponent<SpriteRenderer>().enabled = true;
             orderList[i].transform.position = _position[i];
+        }
+
+        for (int i=orderList.Count; i < ORDER_COUNT_LIMIT; i++)
+        {
+            transform.GetChild(i + 1).GetComponent<SpriteRenderer>().enabled = false;
         }
 
         Destroy(temp);
@@ -109,4 +109,10 @@ public class OrderManager : MonoBehaviour
         }
     }
 
+    public void CreateFirstOrder()
+    {
+        CreateNewOrder();
+        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL);
+        Invoke(nameof(CreateNewOrder), INITIAL_INTERVAL * 2);
+    }
 }

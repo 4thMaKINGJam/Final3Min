@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1132934075296350003}
   - component: {fileID: 1132934075296350002}
   - component: {fileID: 1132934075296350005}
+  - component: {fileID: 2784296618559211018}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -151,3 +152,24 @@ MonoBehaviour:
   sCooked: 0
   sItemCnt: 0
   comparePotion: {fileID: 0}
+  animator: {fileID: 2784296618559211018}
+--- !u!95 &2784296618559211018
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132934075296350004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4153a77479845194096980fdd4639dbb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -18,6 +18,13 @@ public class fillPotion : MonoBehaviour
     public int sItemCnt = 0;
 
     public OrderManager comparePotion;
+    [SerializeField]
+    private Animator animator;
+
+    void OnEnable() {
+        animator = this.GetComponent<Animator>();
+    }
+
     void Update()
     {
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -53,12 +60,41 @@ public class fillPotion : MonoBehaviour
     }
 
     void sendToPotion(beaker beakerCtrl) {
+        int color_cook = 0;
         sBaseLiquid = beakerCtrl.liquid;
         Array.Copy(beakerCtrl.item, sItemArray, 4);
         sCooked = beakerCtrl.cooked;
         sItemCnt = beakerCtrl.itemCnt;
         //Debug.Log("∫£¿ÃΩ∫: "+ )
 
+        if (sBaseLiquid == 4 && sCooked == 0)
+        {
+            color_cook = 40;
+        }
+        else if (sBaseLiquid == 4 && sCooked == 1) {
+            color_cook = 41;
+        }
+        else if (sBaseLiquid == 5 && sCooked == 0)
+        {
+            color_cook = 50;
+        }
+        else if (sBaseLiquid == 5 && sCooked == 1)
+        {
+            color_cook = 51;
+        }
+        else if (sBaseLiquid == 6 && sCooked == 0)
+        {
+            color_cook = 60;
+        }
+        else if (sBaseLiquid == 6 && sCooked == 1)
+        {
+            color_cook = 61;
+        }
+        else if (sCooked == 2)
+        {
+            color_cook = 70;
+        }
+        animator.SetInteger("color_cook", color_cook);
         beakerCtrl.enabled = true;
     }
 }
