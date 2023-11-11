@@ -6,7 +6,13 @@ public class Item : MonoBehaviour
 {
     [SerializeField]
     private int ItemType;   // 0,1,2,3
+    private AudioSource binAudio;
 
+    private void Start()
+    {
+        GameObject binObject = GameObject.Find("Bin");
+        binAudio = binObject.GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +27,7 @@ public class Item : MonoBehaviour
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
                 GameManager.instance.MouseHasObject = false;
+                binAudio.Play();
                 Destroy(gameObject);
             }
             else{

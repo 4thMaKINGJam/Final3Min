@@ -6,6 +6,13 @@ public class Liquid : MonoBehaviour
 {
     [SerializeField]
     private int liquidType;   // 4,5,6
+    private AudioSource binAudio;
+
+    private void Start()
+    {
+        GameObject binObject = GameObject.Find("Bin");
+        binAudio = binObject.GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,6 +28,7 @@ public class Liquid : MonoBehaviour
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
                 GameManager.instance.MouseHasObject = false;
+                binAudio.Play();
                 Destroy(gameObject);
             }
             else{
