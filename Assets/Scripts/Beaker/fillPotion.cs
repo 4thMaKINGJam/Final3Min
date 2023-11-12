@@ -54,6 +54,7 @@ public class fillPotion : MonoBehaviour
             {
                 if (sBaseLiquid != 0) return;
                 beaker beakerCtrl = hit.collider.gameObject.GetComponent<beaker>();
+                beakerCtrl.gameObject.GetComponent<AudioSource>().Stop();
                 beakerCtrl.initiate();
                 sendToPotion(beakerCtrl);
             }
