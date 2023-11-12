@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     
     public bool MouseHasObject = false;
 
-    private readonly int TIME_LIMIT = 1 * 60 * 1000;
-    public int SUCCESS_STD = 1;
+    private readonly int TIME_LIMIT = 3 * 60 * 1000;
+    public int SUCCESS_STD = 10;
 
     void Awake() {
         instance = this;
@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentScore", this.money);
             if (this.money >= SUCCESS_STD)
             {
-                UnityEngine.Debug.Log("success!!!");
                 SceneManager.LoadScene("GameClear");
             } else
             {
