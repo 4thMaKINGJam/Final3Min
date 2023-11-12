@@ -26,6 +26,6 @@ public class UIManager : MonoBehaviour
         int sec = 180-(int)GameManager.instance.stopwatch.ElapsedMilliseconds / 1000;
         int min = sec / 60;
 
-        timeCnt.text = string.Format("{0, 2:00} : {1, 2:00}", min, sec - min * 60);
+        timeCnt.text = string.Format("{0, 2:0} : {1, 2:00}", min, sec - min * 60);
     }
 }
