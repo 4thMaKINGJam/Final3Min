@@ -82,7 +82,7 @@ public class Order : MonoBehaviour
         // shuffle
         for (int i=0; i < ITEM_COUNT; i++)
         {
-            int random_idx = prng.Next(i, ITEM_COUNT - 1);
+            int random_idx = prng.Next(i, ITEM_COUNT);
 
             int temp = itemList[random_idx];
             itemList[random_idx] = itemList[i];
