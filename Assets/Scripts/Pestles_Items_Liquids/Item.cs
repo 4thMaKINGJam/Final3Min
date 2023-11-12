@@ -27,11 +27,11 @@ public class Item : MonoBehaviour
             else{
                 Pestle pestle = hit.collider.gameObject.GetComponent<Pestle>();
                 if(!pestle.Isfull){
+                    gameObject.GetComponent<AudioSource>().Play();
                     pestle.GetIn = true;
                     pestle.Item = ItemType;
                     GameManager.instance.MouseHasObject = false;
-                    
-                    gameObject.GetComponent<AudioSource>().Play();
+
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     gameObject.GetComponent<SpriteRenderer>().enabled = false;
                     Destroy(gameObject, 1f);
