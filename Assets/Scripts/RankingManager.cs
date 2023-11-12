@@ -9,11 +9,19 @@ public class RankingManager : MonoBehaviour
 
     private readonly string RANK_KEY = "RANK";
     private readonly int RANK_MAX = 3;
+    public GameObject stamp;
 
     // Start is called before the first frame update
     void Start()
     {
-        int currentScore = PlayerPrefs.GetInt("CurrentScore");
+        int currentScore;
+        if (PlayerPrefs.HasKey("CurrentScore"))
+        {
+            currentScore = PlayerPrefs.GetInt("CurrentScore");
+        } else
+        {
+            currentScore = 0;
+        }
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = currentScore.ToString();
 
         if (currentScore >= GameManager.instance.SUCCESS_STD)
@@ -35,12 +43,12 @@ public class RankingManager : MonoBehaviour
             transform.GetChild(0).GetChild(i).GetComponent<TextMeshProUGUI>().text = "-";
         }
 
-        //int currentRank = rankList.IndexOf(GameManager.instance.GetMoney());
+        int currentRank = rankList.IndexOf(currentScore);
 
-        //if (currentRank >= 0)
-        //{
-
-        //}
+        if (currentRank >= 0)
+        {
+            stamp.SetActive(true);
+        }
     }
 
     // Update is called once per frame
