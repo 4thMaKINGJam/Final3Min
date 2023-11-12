@@ -6,7 +6,11 @@ public class Item : MonoBehaviour
 {
     [SerializeField]
     private int ItemType;   // 0,1,2,3
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +25,10 @@ public class Item : MonoBehaviour
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
                 GameManager.instance.MouseHasObject = false;
+<<<<<<< Updated upstream
+=======
+                hit.collider.gameObject.GetComponent<AudioSource>().Play();
+>>>>>>> Stashed changes
                 Destroy(gameObject);
             }
             else{
@@ -29,7 +37,10 @@ public class Item : MonoBehaviour
                     pestle.GetIn = true;
                     pestle.Item = ItemType;
                     GameManager.instance.MouseHasObject = false;
-                    Destroy(gameObject);
+                    gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    Destroy(gameObject, 1f);
                 }
             }
         } 

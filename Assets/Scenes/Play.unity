@@ -2658,6 +2658,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1987732033, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
+      propertyPath: m_Volume
+      value: 0.718
+      objectReference: {fileID: 0}
     - target: {fileID: 5272354095539112327, guid: c5120708331ab4c94a3b06f77c29e627, type: 3}
       propertyPath: m_Name
       value: OrderBoard

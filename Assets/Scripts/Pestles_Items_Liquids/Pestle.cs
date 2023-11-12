@@ -58,10 +58,6 @@ public class Pestle : MonoBehaviour
     void OnMouseDown(){
         if(MinigameStage && !GameManager.instance.MouseHasObject){      
             double posX = MinigameCircle.transform.localPosition.x;
-            
-            anim.enabled = false;
-            MortarDefault.SetActive(true);
-            MortarGo.SetActive(false);
 
             if(posX < 0.5 && posX > -0.5)
             {
@@ -70,9 +66,17 @@ public class Pestle : MonoBehaviour
             }else{
                 gameObject.GetComponent<SpriteRenderer>().sprite = BeforeCook[Item];
             }
+
+            anim.enabled = false;
+            MortarDefault.SetActive(true);
+            MortarGo.SetActive(false);
+
+            gameObject.GetComponent<AudioSource>().Stop();
+
             MinigameBar.SetActive(false);
             MinigameRect.SetActive(false);
             MinigameCircle.SetActive(false);
+            
             MinigameStage = false;
         }
         else{     
@@ -81,6 +85,8 @@ public class Pestle : MonoBehaviour
                     MortarDefault.SetActive(false);
                     MortarGo.SetActive(true);
                     anim.enabled = true;
+
+                    gameObject.GetComponent<AudioSource>().Play();
 
                     MinigameStage = true; 
 
