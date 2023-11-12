@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class beaker : MonoBehaviour
 {
+    
     [HideInInspector]
     public int food = 0;
-    /*���ǿ��� �����ؾ��� ��*/
+    
     public int liquid { get; private set; }
     public int[] item { get; private set; } = new int[4];
     public int cooked { get; private set; }
@@ -20,9 +21,10 @@ public class beaker : MonoBehaviour
 
     [SerializeField]
     private GameObject fire;
+    [SerializeField]
+    private GameObject smoke;
     private Animator animator;
-    
-    
+    private ScaleUp smoky;
 
     void OnEnable() {
         food = 7;
@@ -35,14 +37,12 @@ public class beaker : MonoBehaviour
         itemCnt = 0;
         foodCnt = 0;
         waitTime = 7.0f;
-        
+
+        smoky = smoke.GetComponent<ScaleUp>();
         animator = this.GetComponent<Animator>();
         animator.SetInteger("color", 0);
         animator.SetInteger("cooked", cooked);
         this.GetComponent<SpriteRenderer>().sprite = BeakerImage[0];
-
-
-
     }
 
         void Update()
@@ -57,12 +57,12 @@ public class beaker : MonoBehaviour
     #region check food
     void checkFood(int foodType)
     {
-        if (foodType < 4)//food�� ���� item�� ���Դٰ� �߰�
+        if (foodType < 4)
         {
             itemCnt++;
             item[foodType]++;
         }
-        else if (foodType < 7)// food�� ��ü�� liquid�� �߰�, ��Ŀ ���� �ٲٱ�
+        else if (foodType < 7)
         {
             liquid = foodType;
             changeColor(liquid);
@@ -80,15 +80,14 @@ public class beaker : MonoBehaviour
     #endregion
 
     #region beaker timer
-    /***�������� ���� �� 7��, 3�� �߰�***/
     void timerCheck(int count)
     {
-        if (count == 1)//ó���̶�� 7�� Ÿ�̸� ����
+        if (count == 1)
         {
             beakerTimer = StartCoroutine(StartTimer());
             fire.SetActive(true);
         }
-        else if (count > 1)//ó���� �ƴ϶�� 3�ʸ� ���Ѵ�.
+        else if (count > 1)
         {
             AddExtraTime();
         }
@@ -107,6 +106,8 @@ public class beaker : MonoBehaviour
     IEnumerator TimerFinished()
     {
         int timeExm = 6;
+        smoke.gameObject.SetActive(true);
+        smoky.playSmoke();
         cooked = 1;
         animator.SetInteger("cooked", cooked);//1
         while (timeExm>0) {
@@ -121,7 +122,6 @@ public class beaker : MonoBehaviour
     void AddExtraTime()
     {
         waitTime += 3;
-        //���� �ڷ�ƾ ����, ���ŵ� �ð����� Ÿ�̸� �����
         StopCoroutine(beakerTimer);
         beakerTimer = StartCoroutine(StartTimer());
     }
@@ -131,7 +131,7 @@ public class beaker : MonoBehaviour
     }
     #endregion
 
-    public void initiate()//��Ŀ ���� �ʱ�ȭ
+    public void initiate()
     {
         StopCouroutine();
         fire.SetActive(false);
