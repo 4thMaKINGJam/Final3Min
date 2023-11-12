@@ -90,7 +90,6 @@ public class WashMiniGame : MonoBehaviour
         {
             progressBar.gameObject.SetActive(true);
             barActive = true;
-            Debug.Log(bottleDirty);
         }
     }
 

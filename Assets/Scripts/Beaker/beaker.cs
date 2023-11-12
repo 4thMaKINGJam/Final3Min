@@ -87,7 +87,7 @@ public class beaker : MonoBehaviour
             beakerTimer = StartCoroutine(StartTimer());
             fire.SetActive(true);
         }
-        else if (count > 1)
+        else if (count == 2)
         {
             AddExtraTime();
         }
