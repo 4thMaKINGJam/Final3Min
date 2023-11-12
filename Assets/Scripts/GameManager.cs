@@ -7,15 +7,13 @@ using System.Diagnostics;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
     public Stopwatch stopwatch;
 
-    public int money = 0;
-    
-    public bool MouseHasObject = false;
+    [HideInInspector] public int money = 0;
+    [HideInInspector] public bool MouseHasObject = false;
 
     private readonly int TIME_LIMIT = 3 * 60 * 1000;
-    public int SUCCESS_STD = 10;
+    [HideInInspector] public int SUCCESS_STD = 10;
 
     void Awake() {
         instance = this;
