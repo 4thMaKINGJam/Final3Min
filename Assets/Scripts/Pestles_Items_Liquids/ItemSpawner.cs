@@ -12,6 +12,7 @@ public class ItemSpawner : MonoBehaviour
 
     void OnMouseDown(){
           if(GameManager.instance.MouseHasObject) return;
+          gameObject.GetComponent<AudioSource>().Play();
           GameManager.instance.MouseHasObject = true;
           GameManager.instance.ChangeMoney(-price);
           Instantiate(Item,transform.position,Quaternion.identity);

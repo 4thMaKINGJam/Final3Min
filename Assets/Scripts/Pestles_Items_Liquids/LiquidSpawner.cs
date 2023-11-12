@@ -12,6 +12,7 @@ public class LiquidSpawner : MonoBehaviour
 
     void OnMouseDown(){
         if(GameManager.instance.MouseHasObject) return;
+        gameObject.GetComponent<AudioSource>().Play();
         GameManager.instance.MouseHasObject = true;
         GameManager.instance.ChangeMoney(-price);
         Instantiate(Liquid,transform.position,Quaternion.identity);

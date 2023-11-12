@@ -8,7 +8,7 @@ public class BottleClick : MonoBehaviour
     public GameObject orderBoard;
     private void OnMouseDown()
     {
-        if(GameManager.instance.MouseHasObject) return;
+        if(GameManager.instance.MouseHasObject) return; 
         GameManager.instance.MouseHasObject = true;
         GameObject bottleCreated = Instantiate(bottlePrefab);
         bottleCreated.GetComponent<fillPotion>().comparePotion = orderBoard.GetComponent<OrderManager>();
