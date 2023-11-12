@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayCount : MonoBehaviour
 {
-    public RawImage[] countImages;
+    public SpriteRenderer[] countImages;
     public AudioSource playBGM;
     public AudioSource originBGM;
     public AudioClip[] countSounds;
@@ -14,9 +14,9 @@ public class PlayCount : MonoBehaviour
 
     private void Start()
     {
-        foreach (RawImage rawImage in countImages)
+        foreach (SpriteRenderer sprite in countImages)
         {
-            rawImage.enabled = false;
+            sprite.enabled = false;
         }
 
         StartCoroutine(DisplayImages());
@@ -26,17 +26,17 @@ public class PlayCount : MonoBehaviour
     {
         for (int i = 0; i < countImages.Length; i++)
         {
-            RawImage rawImage = countImages[i];
+            SpriteRenderer sprite = countImages[i];
 
             yield return new WaitForSeconds(0.5f);
 
-            rawImage.enabled = true;
+            sprite.enabled = true;
 
             originBGM.PlayOneShot(countSounds[i]);
 
             yield return new WaitForSeconds(0.5f);
 
-            rawImage.enabled = false;
+            sprite.enabled = false;
         }
         GameManager.instance.stopwatch.Start();
         blockObj.SetActive(false);
