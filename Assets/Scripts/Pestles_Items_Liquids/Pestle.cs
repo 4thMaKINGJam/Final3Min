@@ -62,6 +62,7 @@ public class Pestle : MonoBehaviour
             anim.enabled = false;
             MortarDefault.SetActive(true);
             MortarGo.SetActive(false);
+            gameObject.GetComponent<AudioSource>().Stop();
 
             if(posX < 0.5 && posX > -0.5)
             {
@@ -81,6 +82,7 @@ public class Pestle : MonoBehaviour
                     MortarDefault.SetActive(false);
                     MortarGo.SetActive(true);
                     anim.enabled = true;
+                    gameObject.GetComponent<AudioSource>().Play();
 
                     MinigameStage = true; 
 
