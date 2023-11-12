@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Liquid: {fileID: 3832302371095481995, guid: 733f35ed7e7eac542a4c1b8a75332da1, type: 3}
-  price: 7
+  price: 5
 --- !u!61 &6660240194817086869
 BoxCollider2D:
   m_ObjectHideFlags: 0
