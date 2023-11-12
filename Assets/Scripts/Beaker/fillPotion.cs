@@ -26,6 +26,8 @@ public class fillPotion : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool flag = false;
 
+    [SerializeField] private AudioClip fillSound;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -53,6 +55,7 @@ public class fillPotion : MonoBehaviour
             if (hit.collider.gameObject.tag == "Beaker")
             {
                 if (sBaseLiquid != 0) return;
+                gameObject.GetComponent<AudioSource>().PlayOneShot(fillSound);
                 beaker beakerCtrl = hit.collider.gameObject.GetComponent<beaker>();
                 beakerCtrl.gameObject.GetComponent<AudioSource>().Stop();
                 beakerCtrl.initiate();
