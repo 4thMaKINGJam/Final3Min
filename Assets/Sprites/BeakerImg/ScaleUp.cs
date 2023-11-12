@@ -5,14 +5,8 @@ public class ScaleUp : MonoBehaviour
 {
     public float scaleSpeed = 1.0f;
     public float fadeOutTime = 1.0f;
-
-    [SerializeField] private AudioSource phong;
-
     public void playSmoke()
     {
-        phong = GetComponent<AudioSource>();
-        phong.Play();
-
         StartCoroutine(ScaleAndFadeOutCoroutine());
     }
 

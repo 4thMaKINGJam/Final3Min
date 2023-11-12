@@ -36,6 +36,7 @@ public class CookedItem : MonoBehaviour
                 if(babyBeaker.liquid != 0){
                     if(babyBeaker.itemCnt < 2 && babyBeaker.cooked == 0){
                         babyBeaker.food = ItemType;
+
                         GameManager.instance.MouseHasObject = false;
                         Destroy(gameObject);
                     }
