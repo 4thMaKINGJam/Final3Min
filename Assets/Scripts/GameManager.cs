@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
     
     public bool MouseHasObject = false;
 
-    private readonly int TIME_LIMIT = 3 * 60 * 1000;
-    private readonly int SUCCESS_STD = 0;
-
+    private readonly int TIME_LIMIT = 1 * 60 * 1000;
+    public int SUCCESS_STD = 1;
 
     void Awake() {
         instance = this;
     }
-    // Start is called before the first frame update
+
+        // Start is called before the first frame update
     void Start()
     {
         stopwatch = new Stopwatch();
@@ -32,8 +32,10 @@ public class GameManager : MonoBehaviour
     {
         if (this.stopwatch.ElapsedMilliseconds >= TIME_LIMIT)
         {
+            PlayerPrefs.SetInt("CurrentScore", this.money);
             if (this.money >= SUCCESS_STD)
             {
+                UnityEngine.Debug.Log("success!!!");
                 SceneManager.LoadScene("GameClear");
             } else
             {
