@@ -6,13 +6,6 @@ public class Liquid : MonoBehaviour
 {
     [SerializeField]
     private int liquidType;   // 4,5,6
-    private AudioSource binAudio;
-
-    private void Start()
-    {
-        GameObject binObject = GameObject.Find("Bin");
-        binAudio = binObject.GetComponent<AudioSource>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,15 +21,19 @@ public class Liquid : MonoBehaviour
         if(hit){
             if(hit.collider.gameObject.tag == "Bin"){
                 GameManager.instance.MouseHasObject = false;
-                binAudio.Play();
+                hit.collider.gameObject.GetComponent<AudioSource>().Play();
                 Destroy(gameObject);
             }
             else{
                 beaker babyBeaker = hit.collider.gameObject.GetComponent<beaker>();
                 if(babyBeaker.liquid == 0){
-                    babyBeaker.food = liquidType; 
+                    babyBeaker.food = liquidType;
                     GameManager.instance.MouseHasObject = false;
-                    Destroy(gameObject);
+                    gameObject.GetComponent<AudioSource>().Play();
+                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    Destroy(gameObject, 1f);
                 }
             }
         } 
