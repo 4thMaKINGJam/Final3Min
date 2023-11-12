@@ -10,7 +10,7 @@ public class OrderManager : MonoBehaviour
 
     private readonly float INITIAL_INTERVAL = 7f;
     private readonly int ORDER_COUNT_LIMIT = 3;
-    private readonly float DEFAULT_DELAY = 7f;
+    private readonly float DEFAULT_DELAY = 5f;
 
     [SerializeField] private AudioClip correctSound;
     [SerializeField] private AudioClip wrongSound;

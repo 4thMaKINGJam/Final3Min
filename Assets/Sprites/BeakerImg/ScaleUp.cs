@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ScaleUp : MonoBehaviour
 {
-    public float scaleSpeed = 1.0f;
+    public float scaleSpeed = 2.0f;
     public float fadeOutTime = 1.0f;
     public void playSmoke()
     {
