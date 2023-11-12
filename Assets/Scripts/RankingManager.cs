@@ -31,11 +31,9 @@ public class RankingManager : MonoBehaviour
 
         rankList = GetRankingList();
         int cnt = rankList.Count;
-        Debug.Log("score"+GameManager.instance.GetMoney());
 
         for (int i=0; i < cnt; i++)
         {
-            Debug.Log(rankList[i]);
             transform.GetChild(0).GetChild(i).GetComponent<TextMeshProUGUI>().text = rankList[i].ToString();
         }
         for (int i=cnt; i < 3; i++)
