@@ -26,6 +26,10 @@ public class beaker : MonoBehaviour
     private Animator animator;
     private ScaleUp smoky;
 
+    void start() {
+        smoky = smoke.GetComponent<ScaleUp>();
+        animator = this.GetComponent<Animator>();
+    }
     void OnEnable() {
         food = 7;
         liquid = 0;
@@ -33,13 +37,11 @@ public class beaker : MonoBehaviour
         {
             item[i] = 0;
         }
-        cooked = 0;
+        cooked = 0;a
         itemCnt = 0;
         foodCnt = 0;
         waitTime = 7.0f;
 
-        smoky = smoke.GetComponent<ScaleUp>();
-        animator = this.GetComponent<Animator>();
         animator.SetInteger("color", 0);
         animator.SetInteger("cooked", cooked);
         this.GetComponent<SpriteRenderer>().sprite = BeakerImage[0];
