@@ -35,13 +35,18 @@ public class CookedItem : MonoBehaviour
                 beaker babyBeaker = hit.collider.gameObject.GetComponent<beaker>();
                 if(babyBeaker.liquid != 0){
                     if(babyBeaker.itemCnt < 2 && babyBeaker.cooked == 0){
+                        gameObject.GetComponent<AudioSource>().Play();
                         babyBeaker.food = ItemType;
-
+                        
                         GameManager.instance.MouseHasObject = false;
-                        Destroy(gameObject);
+                        
+                        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                        Destroy(gameObject, 1f);
                     }
                 }
             }
         } 
     }
+
 }
